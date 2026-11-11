@@ -141,7 +141,7 @@ Uma amostra de cada fonte está em [`amostras/`](amostras/).
 
 ## ⚙️ Coleta no Airflow
 
-**DAG:** [`dags/buslight_coleta.py`](dags/buslight_coleta.py) · **Agendamento:** `@daily` · **Airflow:** 3.x
+**DAG:** [`dags/buslight_coleta.py`](dags/buslight_coleta.py) · **Agendamento:** `@daily` · **Airflow:** 3.4.0 · **Coletores:** [`dags/buslight/`](dags/buslight/)
 
 ```
                      ┌─ coletar_posicao  ─┐
@@ -155,31 +155,35 @@ inicio ──────────────┼─ coletar_clima    ─┼�
 |---|---|
 | `inicio` | Marca o início da execução |
 | `coletar_posicao` | Autentica na SPTrans e salva a posição de todos os ônibus |
-| `coletar_previsao` | Salva a previsão de chegada para cada ponto monitorado |
+| `coletar_previsao` | Salva a previsão de chegada para cada ponto monitorado (lista fixa ou descoberta pelos bairros do piloto); um ponto com falha é registrado sem derrubar a coleta |
 | `coletar_clima` | Salva chuva e temperatura por hora do dia da execução |
-| `coletar_ibge` | Salva municípios e população |
+| `coletar_ibge` | Salva os municípios da Região Metropolitana de SP e a população estimada |
 | `gerar_usuarios` | Gera o lote do cadastro simulado |
-| `conferir_chegada` | Verifica se todos os arquivos do dia existem e não estão vazios; falha se faltar algum |
-| `notificar` | Registra o resumo da execução (arquivos e tamanhos); em caso de falha, o `on_failure_callback` dispara o aviso |
+| `conferir_chegada` | Verifica se todas as fontes têm arquivo do dia e não vazio; falha se faltar algum |
+| `notificar` | Envia o resumo da execução; em caso de falha, o `on_failure_callback` dispara o aviso |
 
-**Padrão dos arquivos na pasta de pouso** (um arquivo por coleta, com a data no nome):
+**Resiliência:** cada tarefa tem 2 novas tentativas automáticas (intervalo de 2 minutos) antes de falhar.
+
+**Padrão dos arquivos na pasta de pouso** (um arquivo por coleta, com a data no nome e o horário para diferenciar coletas do mesmo dia):
 
 ```
 chegada/
-├── sptrans_posicao/   sptrans_posicao_2026-11-12.json
-├── sptrans_previsao/  sptrans_previsao_2026-11-12.json
-├── clima/             clima_2026-11-12.json
-├── ibge/              ibge_2026-11-12.json
-└── usuarios/          usuarios_2026-11-12.csv
+├── sptrans_posicao/   sptrans_posicao_2026-11-12_0630.json
+├── sptrans_previsao/  sptrans_previsao_2026-11-12_0630.json
+├── clima/             clima_2026-11-12_0630.json
+├── ibge/              ibge_2026-11-12_0630.json
+└── usuarios/          usuarios_2026-11-12_0630.csv
 ```
 
-**Configuração no Airflow (nunca no código):**
+**Configuração no Airflow (Admin → Variables, nunca no código):**
 
-| Tipo | Nome | Conteúdo |
+| Variable | Obrigatória | Conteúdo |
 |---|---|---|
-| Variable | `SPTRANS_TOKEN` | Token da API Olho Vivo |
-| Variable | `BUSLIGHT_PONTOS` | Lista dos códigos de parada monitorados |
-| Variable | `BUSLIGHT_CHEGADA` | Caminho da pasta de pouso `chegada/` |
+| `SPTRANS_TOKEN` | Sim | Token da API Olho Vivo |
+| `BUSLIGHT_CHEGADA` | Não | Caminho da pasta de pouso (padrão: `chegada/` na raiz do repositório) |
+| `BUSLIGHT_PONTOS` | Não | Lista JSON dos códigos de parada monitorados, ex.: `[340015333, 260015039]` |
+| `BUSLIGHT_TERMOS` | Não | Lista JSON de bairros usados para descobrir pontos quando não há lista fixa (padrão: `["Guaianases", "Itaquera", "Tiradentes"]`) |
+| `BUSLIGHT_WEBHOOK` | Não | URL de webhook (Discord, Slack ou Teams) para receber os avisos |
 
 ---
 
@@ -308,19 +312,20 @@ A Ouro entrega ao app três visões prontas e uma dimensão de usuários protegi
 
 ```
 ├── dags/
-│   └── buslight_coleta.py          # DAG de coleta
+│   ├── buslight_coleta.py          # DAG de coleta
+│   └── buslight/
+│       ├── coletores.py            # SPTrans, Open-Meteo, IBGE e conferência
+│       └── usuarios.py             # gerador do cadastro simulado
 ├── databricks/
 │   ├── 00_setup.sql                # schema, volume e pastas
 │   ├── 01_bronze.py                # Auto Loader
 │   ├── 02_prata.py                 # tratamento, MERGE e qualidade
 │   ├── 03_ouro.py                  # modelo dimensional, LGPD e visões do MVP
 │   └── sql/                        # as 5 consultas
-├── scripts/
-│   └── gerar_usuarios.py           # gerador do cadastro simulado
 ├── amostras/                       # um pouco de cada fonte
 ├── docs/                           # diagramas e prints
 ├── requirements.txt
-├── .gitignore                      # chegada/, logs/, .env
+├── .gitignore                      # chegada/, .venv/, .airflow/, .env
 └── README.md
 ```
 
@@ -335,17 +340,18 @@ A Ouro entrega ao app três visões prontas e uma dimensão de usuários protegi
 
 ### 1. Airflow (coleta)
 ```bash
-git clone [link do repositório]
-cd GS-BigDataArchitecture-DataIntegration-BusLight
+git clone https://github.com/julialgalvao/GS_BigDataArchitecture-DataIntegration_BusLight.git
+cd GS_BigDataArchitecture-DataIntegration_BusLight
 python3.12 -m venv .venv && source .venv/bin/activate
-pip install -r requirements.txt
+pip install -r requirements.txt --constraint https://raw.githubusercontent.com/apache/airflow/constraints-3.4.0/constraints-3.12.txt
 export AIRFLOW_HOME=$(pwd)/.airflow
 export AIRFLOW__CORE__DAGS_FOLDER=$(pwd)/dags
+export AIRFLOW__CORE__LOAD_EXAMPLES=False
 airflow standalone
 ```
 1. Acesse `http://localhost:8080` com o usuário e a senha exibidos no terminal.
-2. Em **Admin → Variables**, crie `SPTRANS_TOKEN`, `BUSLIGHT_PONTOS` e `BUSLIGHT_CHEGADA`.
-3. Ative o DAG `buslight_coleta` e acompanhe nas visões **Graph** e **Grid**.
+2. Em **Admin → Variables**, crie ao menos `SPTRANS_TOKEN` (as demais são opcionais, ver [Coleta no Airflow](#️-coleta-no-airflow)).
+3. Ative o DAG `buslight_coleta`, clique em **Trigger** e acompanhe nas visões **Graph** e **Grid**.
 4. Os arquivos aparecem em `chegada/`.
 
 ### 2. Databricks (lakehouse)
