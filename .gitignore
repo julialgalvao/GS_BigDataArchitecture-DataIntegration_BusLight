@@ -1,0 +1,14 @@
+# Ambiente local
+.venv/
+.airflow/
+__pycache__/
+*.pyc
+.DS_Store
+
+# Pasta de pouso (dados coletados ficam fora do repositório; amostras vão em amostras/)
+chegada/
+logs/
+
+# Segredos
+.env
+*.env

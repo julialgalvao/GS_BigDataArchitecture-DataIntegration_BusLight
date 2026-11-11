@@ -1,0 +1,5 @@
+# Instalar com o arquivo de constraints oficial do Airflow:
+# pip install -r requirements.txt --constraint https://raw.githubusercontent.com/apache/airflow/constraints-3.4.0/constraints-3.12.txt
+apache-airflow==3.4.0
+requests==2.34.2
+Faker==40.54.0
