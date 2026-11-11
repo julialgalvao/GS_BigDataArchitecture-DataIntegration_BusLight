@@ -1,60 +1,56 @@
-"""DAG de coleta do BusLight.
-
-inicio -> [coletar_posicao, coletar_previsao, coletar_clima, coletar_ibge, gerar_usuarios]
-       -> conferir_chegada -> notificar
-
-Configuração (Admin -> Variables), nunca no código:
-- SPTRANS_TOKEN     token da API Olho Vivo (obrigatória)
-- BUSLIGHT_CHEGADA  caminho da pasta de pouso (padrão: <repo>/chegada)
-- BUSLIGHT_PONTOS   JSON com códigos de parada, ex.: [340015333, 260015039] (opcional)
-- BUSLIGHT_TERMOS   JSON com bairros para descobrir pontos (opcional)
-- BUSLIGHT_WEBHOOK  URL de webhook (Discord/Slack/Teams) para avisos (opcional)
 """
-from __future__ import annotations
+BusLight - DAG de coleta diária
 
+Baixa as fontes em paralelo, confere se todos os arquivos chegaram em chegada/
+e manda um aviso no final (ou quando alguma tarefa falha).
+
+Variables (Admin -> Variables):
+  SPTRANS_TOKEN     obrigatória
+  BUSLIGHT_CHEGADA  pasta de pouso (padrão: chegada/ na raiz do repo)
+  BUSLIGHT_PONTOS   lista de códigos de parada, ex: [340015333, 260015039]
+  BUSLIGHT_TERMOS   bairros para buscar pontos, ex: ["Guaianases", "Itaquera"]
+  BUSLIGHT_WEBHOOK  webhook do Discord/Slack/Teams para os avisos
+"""
 import json
 import logging
 import sys
 from datetime import timedelta
 from pathlib import Path
 
-# Garante que o pacote buslight/ (ao lado deste arquivo) seja encontrado
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-
 import pendulum
 import requests
 from airflow.providers.standard.operators.empty import EmptyOperator
 from airflow.sdk import DAG, Variable, task
 
-from buslight import coletores, usuarios
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from buslight import coletores, usuarios  # noqa: E402
 
 log = logging.getLogger(__name__)
 
 PASTA_PADRAO = str(Path(__file__).resolve().parent.parent / "chegada")
 
 
-def _chegada() -> str:
+def pasta_chegada():
     return Variable.get("BUSLIGHT_CHEGADA", default=PASTA_PADRAO)
 
 
-def _lista(nome: str) -> list:
+def lista_variable(nome):
     return json.loads(Variable.get(nome, default="[]"))
 
 
-def _avisar(mensagem: str) -> None:
-    """Registra no log e, se houver webhook configurado, envia o aviso."""
+def avisar(mensagem):
     log.warning(mensagem)
     webhook = Variable.get("BUSLIGHT_WEBHOOK", default="")
     if webhook:
         try:
             requests.post(webhook, json={"content": mensagem, "text": mensagem}, timeout=10)
         except requests.RequestException as erro:
-            log.error("Falha ao enviar aviso pelo webhook: %s", erro)
+            log.error("Não foi possível enviar o aviso: %s", erro)
 
 
-def avisar_falha(context) -> None:
+def avisar_falha(context):
     ti = context["task_instance"]
-    _avisar(f"[BusLight] Falha na tarefa {ti.task_id} do DAG {ti.dag_id} ({context['ds']}): {context.get('exception')}")
+    avisar(f"[BusLight] Falha em {ti.task_id} ({context['ds']}): {context.get('exception')}")
 
 
 default_args = {
@@ -66,54 +62,55 @@ default_args = {
 
 with DAG(
     dag_id="buslight_coleta",
-    description="Coleta diária das fontes do BusLight para a pasta de pouso chegada/",
+    description="Coleta diária das fontes do BusLight",
     schedule="@daily",
     start_date=pendulum.datetime(2026, 11, 10, tz="America/Sao_Paulo"),
     catchup=False,
     max_active_runs=1,
     default_args=default_args,
-    tags=["buslight", "gs-2026", "coleta"],
+    tags=["buslight", "gs-2026"],
 ) as dag:
+
     inicio = EmptyOperator(task_id="inicio")
 
     @task
-    def coletar_posicao(ds=None) -> str:
-        return str(coletores.coletar_posicao(Variable.get("SPTRANS_TOKEN"), _chegada(), ds))
+    def coletar_posicao(ds=None):
+        return str(coletores.coletar_posicao(Variable.get("SPTRANS_TOKEN"), pasta_chegada(), ds))
 
     @task
-    def coletar_previsao(ds=None) -> str:
-        return str(
-            coletores.coletar_previsao(
-                Variable.get("SPTRANS_TOKEN"),
-                _chegada(),
-                ds,
-                pontos=_lista("BUSLIGHT_PONTOS"),
-                termos=_lista("BUSLIGHT_TERMOS") or None,
-            )
+    def coletar_previsao(ds=None):
+        arquivo = coletores.coletar_previsao(
+            Variable.get("SPTRANS_TOKEN"),
+            pasta_chegada(),
+            ds,
+            pontos=lista_variable("BUSLIGHT_PONTOS"),
+            termos=lista_variable("BUSLIGHT_TERMOS") or None,
         )
+        return str(arquivo)
 
     @task
-    def coletar_clima(ds=None) -> str:
-        return str(coletores.coletar_clima(_chegada(), ds))
+    def coletar_clima(ds=None):
+        return str(coletores.coletar_clima(pasta_chegada(), ds))
 
     @task
-    def coletar_ibge(ds=None) -> str:
-        return str(coletores.coletar_ibge(_chegada(), ds))
+    def coletar_ibge(ds=None):
+        return str(coletores.coletar_ibge(pasta_chegada(), ds))
 
     @task
-    def gerar_usuarios(ds=None) -> str:
-        return str(usuarios.gerar_usuarios(_chegada(), ds, _lista("BUSLIGHT_PONTOS")))
+    def gerar_usuarios(ds=None):
+        return str(usuarios.gerar_usuarios(pasta_chegada(), ds, lista_variable("BUSLIGHT_PONTOS")))
 
     @task
-    def conferir_chegada(ds=None) -> dict:
-        return coletores.conferir_chegada(_chegada(), ds)
+    def conferir_chegada(ds=None):
+        return coletores.conferir_chegada(pasta_chegada(), ds)
 
     @task
-    def notificar(resumo: dict, ds=None) -> None:
+    def notificar(resumo, ds=None):
         total = sum(len(arquivos) for arquivos in resumo.values())
-        _avisar(f"[BusLight] Coleta de {ds} concluída: {total} arquivo(s) em {len(resumo)} fonte(s).")
+        avisar(f"[BusLight] Coleta de {ds} concluída: {total} arquivos de {len(resumo)} fontes.")
 
     coletas = [coletar_posicao(), coletar_previsao(), coletar_clima(), coletar_ibge(), gerar_usuarios()]
     conferencia = conferir_chegada()
+
     inicio >> coletas >> conferencia
     notificar(conferencia)
