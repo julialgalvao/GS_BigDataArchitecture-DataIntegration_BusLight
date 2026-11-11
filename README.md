@@ -211,7 +211,7 @@ Todas as tabelas ficam no schema **`workspace.buslight`**. Notebooks em [`databr
 | Tabela Prata | Tratamento | Chave do `MERGE` |
 |---|---|---|
 | `prata_posicao_onibus` | Explode o JSON aninhado (linhas → veículos), tipos de data/hora e coordenadas | `prefixo_veiculo` + `data_hora` |
-| `prata_previsao_parada` | Explode pontos → linhas → veículos, calcula `espera_min` | `codigo_parada` + `codigo_linha` + `data_hora_coleta` |
+| `prata_previsao_parada` | Explode pontos → linhas → veículos, calcula `espera_min` | `codigo_parada` + `codigo_linha` + `prefixo_veiculo` + `data_hora_coleta` |
 | `prata_clima_hora` | `arrays_zip` + `explode` das listas paralelas do Open-Meteo | `data_hora` |
 | `prata_municipio` | Junta municípios com população | `codigo_municipio` |
 | `prata_usuario` | Padroniza telefone, valida campos obrigatórios | `id_usuario` |
@@ -222,7 +222,7 @@ Todas as tabelas ficam no schema **`workspace.buslight`**. Notebooks em [`databr
 |---|---|---|
 | 1 | Coordenada GPS fora da Grande São Paulo | `prata_posicao_onibus` |
 | 2 | Registro duplicado do mesmo veículo no mesmo minuto | `prata_posicao_onibus` |
-| 3 | Velocidade impossível entre duas leituras (acima de 120 km/h) | `prata_posicao_onibus` |
+| 3 | Posição GPS desatualizada (leitura com mais de 30 minutos em relação à coleta) | `prata_posicao_onibus` |
 | 4 | Previsão de chegada no passado ou com espera acima de 180 minutos | `prata_previsao_parada` |
 | 5 | Usuário sem telefone ou com ponto favorito inexistente | `prata_usuario` |
 
@@ -269,7 +269,7 @@ Arquivos em [`databricks/sql/`](databricks/sql/). Resultados e interpretação n
 
 ## 🔌 Contrato com o MVP
 
-A Ouro entrega ao app três visões prontas e uma dimensão de usuários protegida. O app (repositório de Cloud) consome uma exportação em JSON dessas visões.
+A Ouro entrega ao app três visões prontas e uma dimensão de usuários protegida. O notebook [`04_exportar_mvp.py`](databricks/04_exportar_mvp.py) gera um JSON por visão, que é copiado para `app/data/` no repositório de Cloud.
 
 | O MVP consome | Tabela/visão da Ouro | Tela do app que exibe |
 |---|---|---|
@@ -321,6 +321,7 @@ A Ouro entrega ao app três visões prontas e uma dimensão de usuários protegi
 │   ├── 01_bronze.py                # Auto Loader
 │   ├── 02_prata.py                 # tratamento, MERGE e qualidade
 │   ├── 03_ouro.py                  # modelo dimensional, LGPD e visões do MVP
+│   ├── 04_exportar_mvp.py          # JSON das visões para o app
 │   └── sql/                        # as 5 consultas
 ├── amostras/                       # um pouco de cada fonte
 ├── docs/                           # diagramas e prints
@@ -350,6 +351,8 @@ export AIRFLOW__CORE__LOAD_EXAMPLES=False
 airflow standalone
 ```
 1. Acesse `http://localhost:8080` com o usuário e a senha exibidos no terminal.
+
+> Se o `airflow standalone` travar em "Migrating the Airflow database", rode `airflow db migrate` e depois suba os componentes em 3 terminais: `airflow dag-processor`, `airflow scheduler` e `airflow api-server`. A senha do usuário `admin` fica em `.airflow/simple_auth_manager_passwords.json.generated`.
 2. Em **Admin → Variables**, crie ao menos `SPTRANS_TOKEN` (as demais são opcionais, ver [Coleta no Airflow](#️-coleta-no-airflow)).
 3. Ative o DAG `buslight_coleta`, clique em **Trigger** e acompanhe nas visões **Graph** e **Grid**.
 4. Os arquivos aparecem em `chegada/`.
@@ -361,6 +364,7 @@ airflow standalone
 4. **Lote 2:** envie os arquivos do 2º dia e rode `01_bronze` de novo (só os novos entram).
 5. Rode `02_prata` e `03_ouro`.
 6. Execute as consultas de `databricks/sql/`.
+7. Rode `04_exportar_mvp` e baixe os JSON de `chegada/_mvp/` para o app.
 
 ---
 
