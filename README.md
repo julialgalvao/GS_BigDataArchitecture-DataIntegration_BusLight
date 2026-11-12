@@ -35,6 +35,7 @@ Componente **Dados** do BusLight: o pipeline que coleta dados reais de ônibus, 
 14. [Estrutura do repositório](#-estrutura-do-repositório)
 15. [Como reproduzir](#️-como-reproduzir)
 16. [Links](#-links)
+17. [Análise exploratória](#-análise-exploratória)
 
 ---
 
@@ -330,9 +331,15 @@ A Ouro entrega ao app três visões prontas e uma dimensão de usuários protegi
 │   ├── 04_exportar_mvp.py          # JSON das visões para o app
 │   └── sql/                        # as 5 consultas
 ├── amostras/                       # um pouco de cada fonte
-├── docs/                           # diagramas e prints
+├── analises/
+│   └── analise_exploratoria.py     # gráficos e resumo dos dados coletados
+├── tests/
+│   └── test_coleta.py              # testes dos coletores e do cadastro simulado
+├── docs/
+│   └── graficos/                   # gráficos da análise exploratória
 ├── requirements.txt
-├── .gitignore                      # chegada/, .venv/, .airflow/, .env
+├── requirements-dev.txt            # pytest
+├── .gitignore                      # chegada/, lotes/, .venv/, .airflow/, .env
 └── README.md
 ```
 
@@ -371,6 +378,29 @@ airflow standalone
 5. Rode `02_prata` e `03_ouro`.
 6. Execute as consultas de `databricks/sql/`.
 7. Rode `04_exportar_mvp` e baixe os JSON de `chegada/_mvp/` para o app.
+
+### 3. Análise exploratória e testes
+```bash
+pip install -r analises/requirements.txt
+python analises/analise_exploratoria.py        # gráficos em docs/graficos/
+
+pip install -r requirements-dev.txt
+pytest tests/
+```
+
+---
+
+## 📈 Análise exploratória
+
+O script [`analises/analise_exploratoria.py`](analises/analise_exploratoria.py) lê os arquivos coletados e gera os gráficos abaixo, usados para validar os resultados da Ouro por outro caminho.
+
+| | |
+|---|---|
+| ![Distribuição da espera](docs/graficos/g1_distribuicao_espera.png) | ![Espera por faixa horária](docs/graficos/g2_espera_por_faixa.png) |
+| ![Top 10 pontos](docs/graficos/g3_top10_pontos.png) | ![Espera por corredor](docs/graficos/g4_espera_por_corredor.png) |
+| ![Frota por coleta](docs/graficos/g5_frota_por_coleta.png) | ![Acessibilidade da frota](docs/graficos/g6_acessibilidade.png) |
+
+Os números de cada execução ficam em [`docs/graficos/resumo.json`](docs/graficos/resumo.json).
 
 ---
 

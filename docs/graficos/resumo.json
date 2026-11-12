@@ -1,0 +1,87 @@
+{
+ "coletas": [
+  "sptrans_previsao_2026-11-12_1000",
+  "sptrans_previsao_2026-11-12_100429",
+  "sptrans_previsao_2026-11-12_120017"
+ ],
+ "dias": [
+  "2026-11-12"
+ ],
+ "pontos": 144,
+ "linhas": 97,
+ "observacoes": 3627,
+ "espera_media": 10.7,
+ "espera_mediana": 8,
+ "espera_p90": 23,
+ "pct_acima_20min": 13.6,
+ "pct_acima_30min": 3.3,
+ "espera_media_por_faixa": {
+  "manhã": 11.0,
+  "tarde": 10.2
+ },
+ "top_pontos": [
+  {
+   "ponto": "EUCLYDES DA CUNHA C/B",
+   "espera_media": 17.7
+  },
+  {
+   "ponto": "BRASÍLIO M. NETO C/B",
+   "espera_media": 16.3
+  },
+  {
+   "ponto": "CLINICAS B/C",
+   "espera_media": 15.6
+  },
+  {
+   "ponto": "PARADA VITAL BRASIL B/C",
+   "espera_media": 15.5
+  },
+  {
+   "ponto": "PAULISTA B/C",
+   "espera_media": 15.5
+  },
+  {
+   "ponto": "PEDRO TAQUES B/C",
+   "espera_media": 14.8
+  },
+  {
+   "ponto": "RIO BONITO ESQUERDA C/B CENTRAL",
+   "espera_media": 14.7
+  },
+  {
+   "ponto": "PARADA DOS INOCENTES C/B",
+   "espera_media": 14.6
+  },
+  {
+   "ponto": "OSCAR FREIRE B/C",
+   "espera_media": 14.5
+  },
+  {
+   "ponto": "ARNOLDO FELMANAS C/B",
+   "espera_media": 14.5
+  }
+ ],
+ "espera_media_por_corredor": {
+  "Parelheiros / Rio Bonito / Santo Amaro": 10.1,
+  "Campo Limpo / Rebouças / Centro": 12.2
+ },
+ "frota_por_coleta": [
+  {
+   "coleta": "2026-11-12T10:00:40.912642-03:00",
+   "onibus": 11113
+  },
+  {
+   "coleta": "2026-11-12T10:04:22.094157-03:00",
+   "onibus": 11086
+  },
+  {
+   "coleta": "2026-11-12T12:00:06.919272-03:00",
+   "onibus": 10280
+  }
+ ],
+ "pct_frota_acessivel": 99.9,
+ "pct_previstos_acessiveis": 99.8,
+ "coletas_com_chuva": 3627,
+ "minutos_evitados_por_viagem": 8.8,
+ "horas_evitadas_mes_por_usuario": 3.2
+}
