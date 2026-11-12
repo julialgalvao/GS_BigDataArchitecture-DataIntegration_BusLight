@@ -44,7 +44,9 @@ Componente **Dados** do BusLight: o pipeline que coleta dados reais de ônibus, 
 
 Na periferia de São Paulo, o trabalhador que depende do ônibus espera muito tempo no ponto, muitas vezes à noite e em lugar escuro, sem saber se o ônibus já passou ou se vai demorar. O BusLight usa a posição real dos ônibus para mostrar quando ele realmente chega e avisar a hora certa de sair de casa, reduzindo o tempo em que a pessoa fica exposta no ponto.
 
-**Território do piloto:** pontos de ônibus da zona leste de São Paulo (região de Itaquera, Guaianases e Cidade Tiradentes), onde as viagens são longas e a espera noturna é maior.
+**Território do piloto:** pontos de ônibus dos corredores da zona sul de São Paulo — **Parelheiros / Rio Bonito / Santo Amaro** e **Campo Limpo** —, que ligam bairros da periferia (Parelheiros, Grajaú, Capão Redondo, Campo Limpo) ao centro, com viagens longas e espera noturna maior.
+
+> **Por que esses corredores?** A API Olho Vivo da SPTrans só disponibiliza cadastro de pontos e previsão de chegada para os pontos dos corredores de ônibus. Testamos bairros da zona leste (Guaianases, Itaquera, Cidade Tiradentes) e a previsão voltava vazia; nos corredores Parelheiros e Campo Limpo, 100% dos 144 pontos têm previsão.
 
 ---
 
@@ -53,7 +55,7 @@ Na periferia de São Paulo, o trabalhador que depende do ônibus espera muito te
 | Campo | Conteúdo |
 |---|---|
 | Nome do produto | BusLight |
-| Cidadão e território | Trabalhador da periferia da zona leste de São Paulo que depende de ônibus, principalmente quem sai cedo ou volta tarde; com atenção a mulheres, idosos e pessoas com deficiência |
+| Cidadão e território | Trabalhador da periferia da zona sul de São Paulo (Parelheiros, Grajaú, Capão Redondo, Campo Limpo) que depende de ônibus, principalmente quem sai cedo ou volta tarde; com atenção a mulheres, idosos e pessoas com deficiência |
 | Problema, em uma frase | O passageiro espera tempo demais no ponto, sem saber quando o ônibus chega, muitas vezes à noite e em lugar inseguro |
 | Proposta de valor | Saber quando o ônibus chega e a hora certa de sair de casa, para esperar o mínimo possível no ponto |
 | Arquitetura: componentes | App web + API (Cloud) · Pipeline de dados (este repositório) · Assistente de IA generativa · Visão computacional no ponto · Robô de alertas (RPA) · Totem físico com sensores (Maker) |
@@ -106,7 +108,7 @@ Na periferia de São Paulo, o trabalhador que depende do ônibus espera muito te
   FONTES                 AIRFLOW 3 (local)                 DATABRICKS FREE EDITION                     MVP
 ┌───────────────┐   ┌──────────────────────────┐   ┌──────────────────────────────────────────┐   ┌──────────┐
 │ SPTrans       │   │ DAG buslight_coleta      │   │  Volume /Volumes/workspace/buslight/     │   │ BusLight │
-│  /Posicao     │──▶│  @daily                  │   │         chegada/  (upload em lotes)      │   │   app    │
+│  /Posicao     │──▶│  6h, 12h, 18h e 22h      │   │         chegada/  (upload em lotes)      │   │   app    │
 │  /Previsao    │──▶│  ┌─ coletar_posicao  ─┐  │   │               │                          │   │          │
 │ Open-Meteo    │──▶│  ├─ coletar_previsao ─┤  │   │   Auto Loader ▼                          │   │  Mapa    │
 │ IBGE          │──▶│  ├─ coletar_clima    ─┼─▶│──▶│  BRONZE  (bruto, incremental)            │   │  Linhas  │
@@ -127,11 +129,11 @@ Na periferia de São Paulo, o trabalhador que depende do ônibus espera muito te
 
 | Fonte | Origem | O que fornece | Formato | Frequência |
 |---|---|---|---|---|
-| SPTrans Olho Vivo – `/Posicao` | API pública externa (token gratuito) | Posição GPS de todos os ônibus em circulação | JSON | Diária (amostras ao longo do dia) |
-| SPTrans Olho Vivo – `/Previsao/Parada` | API pública externa (token gratuito) | Previsão de chegada das linhas nos pontos monitorados | JSON | Diária (amostras ao longo do dia) |
-| Open-Meteo | API aberta externa, sem chave | Chuva e temperatura por hora em São Paulo | JSON | Diária |
-| IBGE – Localidades e SIDRA | API aberta externa | Municípios e população estimada | JSON | Estática (1 coleta) |
-| Cadastro de usuários | Dado **simulado**, gerado por script com semente fixa | Usuário, telefone fictício e ponto favorito | CSV | Por lote |
+| SPTrans Olho Vivo – `/Posicao` | API pública externa (token gratuito) | Posição GPS de todos os ônibus em circulação (~11 mil veículos, ~2,1 mil linhas) | JSON | 4x por dia |
+| SPTrans Olho Vivo – `/Previsao/Parada` | API pública externa (token gratuito) | Previsão de chegada das linhas nos 144 pontos monitorados | JSON | 4x por dia |
+| Open-Meteo | API aberta externa, sem chave | Chuva e temperatura por hora na zona sul de SP | JSON | 4x por dia |
+| IBGE – Localidades e SIDRA | API aberta externa | Municípios da Região Metropolitana e população estimada | JSON | 4x por dia (dado estático; o `MERGE` evita duplicar) |
+| Cadastro de usuários | Dado **simulado**, gerado por script com semente fixa | Usuário, telefone fictício e ponto favorito | CSV | 4x por dia |
 
 > **Sobre o dado simulado:** o cadastro é gerado pelo próprio DAG (`gerar_usuarios`) com a biblioteca Faker e semente fixa, para ser reproduzível. Nenhum dado pessoal real é usado. Ele existe para demonstrar a proteção de dados pessoais exigida pela LGPD na camada Ouro.
 
@@ -141,7 +143,9 @@ Uma amostra de cada fonte está em [`amostras/`](amostras/).
 
 ## ⚙️ Coleta no Airflow
 
-**DAG:** [`dags/buslight_coleta.py`](dags/buslight_coleta.py) · **Agendamento:** `@daily` · **Airflow:** 3.4.0 · **Coletores:** [`dags/buslight/`](dags/buslight/)
+**DAG:** [`dags/buslight_coleta.py`](dags/buslight_coleta.py) · **Agendamento:** `0 6,12,18,22 * * *` (4 coletas por dia, horário de Brasília) · **Airflow:** 3.4.0 · **Coletores:** [`dags/buslight/`](dags/buslight/)
+
+> Quatro coletas por dia para medir a espera em faixas horárias diferentes (manhã, meio-dia, fim da tarde e noite) — a espera noturna é a principal pergunta do MVP.
 
 ```
                      ┌─ coletar_posicao  ─┐
@@ -154,25 +158,27 @@ inicio ──────────────┼─ coletar_clima    ─┼�
 | Tarefa | O que faz |
 |---|---|
 | `inicio` | Marca o início da execução |
-| `coletar_posicao` | Autentica na SPTrans e salva a posição de todos os ônibus |
-| `coletar_previsao` | Salva a previsão de chegada para cada ponto monitorado (lista fixa ou descoberta pelos bairros do piloto); um ponto com falha é registrado sem derrubar a coleta |
-| `coletar_clima` | Salva chuva e temperatura por hora do dia da execução |
+| `coletar_posicao` | Autentica na SPTrans e salva a posição GPS de todos os ônibus em circulação na cidade |
+| `coletar_previsao` | Salva a previsão de chegada nos **144 pontos monitorados**; um ponto com falha é registrado sem derrubar a coleta |
+| `coletar_clima` | Salva chuva e temperatura por hora do dia da execução no território do piloto |
 | `coletar_ibge` | Salva os municípios da Região Metropolitana de SP e a população estimada |
 | `gerar_usuarios` | Gera o lote do cadastro simulado |
-| `conferir_chegada` | Verifica se todas as fontes têm arquivo do dia e não vazio; falha se faltar algum |
+| `conferir_chegada` | Recebe os caminhos gerados **nesta execução** e confere se todos existem e não estão vazios; falha se faltar algum |
 | `notificar` | Envia o resumo da execução; em caso de falha, o `on_failure_callback` dispara o aviso |
 
 **Resiliência:** cada tarefa tem 2 novas tentativas automáticas (intervalo de 2 minutos) antes de falhar.
 
-**Padrão dos arquivos na pasta de pouso** (um arquivo por coleta, com a data no nome e o horário para diferenciar coletas do mesmo dia):
+**Pontos monitorados:** [`dags/buslight/pontos_monitorados.json`](dags/buslight/pontos_monitorados.json) — 144 pontos dos corredores **Parelheiros / Rio Bonito / Santo Amaro** (110) e **Campo Limpo** (34), obtidos pela API da SPTrans (`/Parada/BuscarParadasPorCorredor`). A lista é fixa para que todas as coletas meçam os mesmos pontos e as séries sejam comparáveis entre dias.
+
+**Padrão dos arquivos na pasta de pouso** (um arquivo por coleta, com a data no nome e o horário para diferenciar as coletas do mesmo dia):
 
 ```
 chegada/
-├── sptrans_posicao/   sptrans_posicao_2026-11-12_0630.json
-├── sptrans_previsao/  sptrans_previsao_2026-11-12_0630.json
-├── clima/             clima_2026-11-12_0630.json
-├── ibge/              ibge_2026-11-12_0630.json
-└── usuarios/          usuarios_2026-11-12_0630.csv
+├── sptrans_posicao/   sptrans_posicao_2026-11-12_220000.json
+├── sptrans_previsao/  sptrans_previsao_2026-11-12_220000.json
+├── clima/             clima_2026-11-12_220000.json
+├── ibge/              ibge_2026-11-12_220000.json
+└── usuarios/          usuarios_2026-11-12_220000.csv
 ```
 
 **Configuração no Airflow (Admin → Variables, nunca no código):**
@@ -181,8 +187,7 @@ chegada/
 |---|---|---|
 | `SPTRANS_TOKEN` | Sim | Token da API Olho Vivo |
 | `BUSLIGHT_CHEGADA` | Não | Caminho da pasta de pouso (padrão: `chegada/` na raiz do repositório) |
-| `BUSLIGHT_PONTOS` | Não | Lista JSON dos códigos de parada monitorados, ex.: `[340015333, 260015039]` |
-| `BUSLIGHT_TERMOS` | Não | Lista JSON de bairros usados para descobrir pontos quando não há lista fixa (padrão: `["Guaianases", "Itaquera", "Tiradentes"]`) |
+| `BUSLIGHT_PONTOS` | Não | Lista JSON de códigos de parada para substituir os pontos monitorados, ex.: `[560009166, 260016859]` |
 | `BUSLIGHT_WEBHOOK` | Não | URL de webhook (Discord, Slack ou Teams) para receber os avisos |
 
 ---
@@ -222,7 +227,7 @@ Todas as tabelas ficam no schema **`workspace.buslight`**. Notebooks em [`databr
 |---|---|---|
 | 1 | Coordenada GPS fora da Grande São Paulo | `prata_posicao_onibus` |
 | 2 | Registro duplicado do mesmo veículo no mesmo minuto | `prata_posicao_onibus` |
-| 3 | Posição GPS desatualizada (leitura com mais de 30 minutos em relação à coleta) | `prata_posicao_onibus` |
+| 3 | Posição GPS desatualizada (leitura com mais de 5 minutos em relação à coleta) | `prata_posicao_onibus` |
 | 4 | Previsão de chegada no passado ou com espera acima de 180 minutos | `prata_previsao_parada` |
 | 5 | Usuário sem telefone ou com ponto favorito inexistente | `prata_usuario` |
 
@@ -297,7 +302,7 @@ A Ouro entrega ao app três visões prontas e uma dimensão de usuários protegi
 | Req. | Requisito | Onde está |
 |---|---|---|
 | 01 | Mínimo de 2 fontes, ao menos 1 API pública | 4 fontes externas (SPTrans ×2, Open-Meteo, IBGE) + cadastro simulado |
-| 02 | DAG agendado salvando um arquivo por coleta com data no nome | `dags/buslight_coleta.py` (`@daily`, `chegada/<fonte>/<fonte>_<data>`) |
+| 02 | DAG agendado salvando um arquivo por coleta com data no nome | `dags/buslight_coleta.py` (`0 6,12,18,22 * * *`, `chegada/<fonte>/<fonte>_<data>_<hora>`) |
 | 03 | 2+ tarefas em paralelo, 1 tarefa de conferência, chaves em Variables | 5 coletas em paralelo, `conferir_chegada`, `SPTRANS_TOKEN` em Variable |
 | 04 | Arquivos enviados ao Volume em 2+ lotes de dias diferentes | Lote 1 e lote 2 em `/Volumes/workspace/buslight/chegada` |
 | 05 | Bronze com Auto Loader, incremental e sem duplicar | `databricks/01_bronze.py` + contagens antes/depois |
@@ -315,7 +320,8 @@ A Ouro entrega ao app três visões prontas e uma dimensão de usuários protegi
 │   ├── buslight_coleta.py          # DAG de coleta
 │   └── buslight/
 │       ├── coletores.py            # SPTrans, Open-Meteo, IBGE e conferência
-│       └── usuarios.py             # gerador do cadastro simulado
+│       ├── usuarios.py             # gerador do cadastro simulado
+│       └── pontos_monitorados.json # 144 pontos dos corredores Parelheiros e Campo Limpo
 ├── databricks/
 │   ├── 00_setup.sql                # schema, volume e pastas
 │   ├── 01_bronze.py                # Auto Loader

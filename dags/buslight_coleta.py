@@ -1,14 +1,14 @@
 """
-BusLight - DAG de coleta diária
+BusLight - DAG de coleta
 
-Baixa as fontes em paralelo, confere se todos os arquivos chegaram em chegada/
+Roda 4 vezes por dia (6h, 12h, 18h e 22h) para ter espera de manhã, tarde e noite.
+Baixa as fontes em paralelo, confere se os arquivos desta execução chegaram em chegada/
 e manda um aviso no final (ou quando alguma tarefa falha).
 
 Variables (Admin -> Variables):
   SPTRANS_TOKEN     obrigatória
   BUSLIGHT_CHEGADA  pasta de pouso (padrão: chegada/ na raiz do repo)
-  BUSLIGHT_PONTOS   lista de códigos de parada, ex: [340015333, 260015039]
-  BUSLIGHT_TERMOS   bairros para buscar pontos, ex: ["Guaianases", "Itaquera"]
+  BUSLIGHT_PONTOS   lista de códigos de parada para substituir os pontos monitorados, ex: [560009166, 260016859]
   BUSLIGHT_WEBHOOK  webhook do Discord/Slack/Teams para os avisos
 """
 import json
@@ -70,8 +70,8 @@ default_args = {
 
 with DAG(
     dag_id="buslight_coleta",
-    description="Coleta diária das fontes do BusLight",
-    schedule="@daily",
+    description="Coleta das fontes do BusLight (4x por dia)",
+    schedule="0 6,12,18,22 * * *",
     start_date=pendulum.datetime(2026, 11, 10, tz="America/Sao_Paulo"),
     catchup=False,
     max_active_runs=1,
@@ -83,49 +83,39 @@ with DAG(
 
     @task
     def coletar_posicao():
-        ds = data_coleta()
-        return str(coletores.coletar_posicao(Variable.get("SPTRANS_TOKEN"), pasta_chegada(), ds))
+        return str(coletores.coletar_posicao(Variable.get("SPTRANS_TOKEN"), pasta_chegada(), data_coleta()))
 
     @task
     def coletar_previsao():
-        ds = data_coleta()
         arquivo = coletores.coletar_previsao(
             Variable.get("SPTRANS_TOKEN"),
             pasta_chegada(),
-            ds,
+            data_coleta(),
             pontos=lista_variable("BUSLIGHT_PONTOS"),
-            termos=lista_variable("BUSLIGHT_TERMOS") or None,
         )
         return str(arquivo)
 
     @task
     def coletar_clima():
-        ds = data_coleta()
-        return str(coletores.coletar_clima(pasta_chegada(), ds))
+        return str(coletores.coletar_clima(pasta_chegada(), data_coleta()))
 
     @task
     def coletar_ibge():
-        ds = data_coleta()
-        return str(coletores.coletar_ibge(pasta_chegada(), ds))
+        return str(coletores.coletar_ibge(pasta_chegada(), data_coleta()))
 
     @task
     def gerar_usuarios():
-        ds = data_coleta()
-        return str(usuarios.gerar_usuarios(pasta_chegada(), ds, lista_variable("BUSLIGHT_PONTOS")))
+        return str(usuarios.gerar_usuarios(pasta_chegada(), data_coleta(), lista_variable("BUSLIGHT_PONTOS")))
 
     @task
-    def conferir_chegada():
-        ds = data_coleta()
-        return coletores.conferir_chegada(pasta_chegada(), ds)
+    def conferir_chegada(arquivos):
+        return coletores.conferir_chegada(arquivos)
 
     @task
     def notificar(resumo):
-        ds = data_coleta()
-        total = sum(len(arquivos) for arquivos in resumo.values())
-        avisar(f"[BusLight] Coleta de {ds} concluída: {total} arquivos de {len(resumo)} fontes.")
+        avisar(f"[BusLight] Coleta de {data_coleta()} concluída: {len(resumo)} arquivos -> {', '.join(resumo.values())}")
 
     coletas = [coletar_posicao(), coletar_previsao(), coletar_clima(), coletar_ibge(), gerar_usuarios()]
-    conferencia = conferir_chegada()
+    inicio >> coletas
 
-    inicio >> coletas >> conferencia
-    notificar(conferencia)
+    notificar(conferir_chegada(coletas))

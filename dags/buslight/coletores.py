@@ -1,6 +1,6 @@
 """
 Coleta das fontes do BusLight (SPTrans, Open-Meteo e IBGE).
-Cada função baixa uma fonte e salva um arquivo em chegada/<fonte>/ com a data no nome.
+Cada função baixa uma fonte e salva um arquivo em chegada/<fonte>/ com a data e a hora no nome.
 """
 import json
 import logging
@@ -20,11 +20,16 @@ OPEN_METEO_URL = "https://api.open-meteo.com/v1/forecast"
 IBGE_MUNICIPIOS_URL = "https://servicodados.ibge.gov.br/api/v1/localidades/mesorregioes/3515/municipios"
 IBGE_POPULACAO_URL = "https://apisidra.ibge.gov.br/values/t/6579/n6/{codigos}/v/9324/p/last"
 
-# zona leste de SP (Guaianases)
-LATITUDE = -23.545
-LONGITUDE = -46.415
+# zona sul de SP (Capão Redondo / Campo Limpo), meio do território dos corredores monitorados
+LATITUDE = -23.66
+LONGITUDE = -46.76
 
-FONTES = ("sptrans_posicao", "sptrans_previsao", "clima", "ibge", "usuarios")
+ARQUIVO_PONTOS = Path(__file__).resolve().parent / "pontos_monitorados.json"
+
+
+def pontos_monitorados():
+    # lista fixa dos pontos dos corredores Parelheiros e Campo Limpo (gerada a partir da API da SPTrans)
+    return json.loads(ARQUIVO_PONTOS.read_text(encoding="utf-8"))
 
 
 def agora():
@@ -32,7 +37,7 @@ def agora():
 
 
 def caminho_arquivo(chegada, fonte, data, extensao="json"):
-    destino = Path(chegada) / fonte / f"{fonte}_{data}_{agora():%H%M}.{extensao}"
+    destino = Path(chegada) / fonte / f"{fonte}_{data}_{agora():%H%M%S}.{extensao}"
     destino.parent.mkdir(parents=True, exist_ok=True)
     return destino
 
@@ -65,34 +70,24 @@ def coletar_posicao(token, chegada, data):
     return salvar_json(caminho_arquivo(chegada, "sptrans_posicao", data), conteudo)
 
 
-def buscar_pontos(sessao, termos, limite):
-    pontos = {}
-    for termo in termos:
-        resp = sessao.get(f"{SPTRANS_URL}/Parada/Buscar", params={"termosBusca": termo}, timeout=TIMEOUT)
-        resp.raise_for_status()
-        for parada in resp.json()[:limite]:
-            pontos[parada["cp"]] = {**parada, "termo_busca": termo}
-    return list(pontos.values())
-
-
-def coletar_previsao(token, chegada, data, pontos=None, termos=None, limite=8):
+def coletar_previsao(token, chegada, data, pontos=None):
     sessao = login_sptrans(token)
 
-    # sem lista fixa de pontos, busca pelos bairros do piloto
+    # sem lista na Variable, usa os pontos dos corredores monitorados
     if pontos:
-        paradas = [{"cp": cp} for cp in pontos]
+        paradas = [{"codigo_parada": cp} for cp in pontos]
     else:
-        paradas = buscar_pontos(sessao, termos or ["Guaianases", "Itaquera", "Tiradentes"], limite)
+        paradas = pontos_monitorados()
 
     registros, falhas = [], []
     for parada in paradas:
         try:
-            resp = sessao.get(f"{SPTRANS_URL}/Previsao/Parada", params={"codigoParada": parada["cp"]}, timeout=TIMEOUT)
+            resp = sessao.get(f"{SPTRANS_URL}/Previsao/Parada", params={"codigoParada": parada["codigo_parada"]}, timeout=TIMEOUT)
             resp.raise_for_status()
             registros.append({"parada": parada, "previsao": resp.json()})
         except requests.RequestException as erro:
-            log.warning("Falha no ponto %s: %s", parada["cp"], erro)
-            falhas.append(parada["cp"])
+            log.warning("Falha no ponto %s: %s", parada["codigo_parada"], erro)
+            falhas.append(parada["codigo_parada"])
 
     if not registros:
         raise RuntimeError("Nenhuma previsão coletada")
@@ -140,16 +135,17 @@ def coletar_ibge(chegada, data):
     return salvar_json(caminho_arquivo(chegada, "ibge", data), conteudo)
 
 
-def conferir_chegada(chegada, data, fontes=FONTES):
+def conferir_chegada(arquivos):
+    # confere os arquivos desta execução (caminhos devolvidos pelas tarefas de coleta)
     encontrados, faltando = {}, []
-    for fonte in fontes:
-        arquivos = [a for a in (Path(chegada) / fonte).glob(f"{fonte}_{data}_*") if a.stat().st_size > 0]
-        if arquivos:
-            encontrados[fonte] = sorted(a.name for a in arquivos)
+    for caminho in arquivos:
+        arquivo = Path(caminho)
+        if arquivo.exists() and arquivo.stat().st_size > 0:
+            encontrados[arquivo.parent.name] = arquivo.name
         else:
-            faltando.append(fonte)
+            faltando.append(str(arquivo))
 
     if faltando:
-        raise FileNotFoundError(f"Faltando arquivos de {data}: {', '.join(faltando)}")
+        raise FileNotFoundError(f"Arquivos ausentes ou vazios: {', '.join(faltando)}")
     log.info("Todos os arquivos chegaram: %s", encontrados)
     return encontrados

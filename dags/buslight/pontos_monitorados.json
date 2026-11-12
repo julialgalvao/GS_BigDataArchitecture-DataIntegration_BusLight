@@ -1,0 +1,1298 @@
+[
+ {
+  "codigo_parada": 230009560,
+  "nome": "RUA CATARINO ANDRÉATA",
+  "endereco": "RUA CATARINO ANDRÉATA",
+  "latitude": -23.702749,
+  "longitude": -46.701907,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 560009166,
+  "nome": "ALFREDO REIMBERG B/C",
+  "endereco": "R PAIOL VELHO/ R NIELS CHRISTIAN SOERENSEN",
+  "latitude": -23.790935,
+  "longitude": -46.726858,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 560009167,
+  "nome": "ALFREDO REIMBERG C/B",
+  "endereco": "R PAIOL VELHO/ R NIELS CHRISTIAN SOERENSEN",
+  "latitude": -23.791088,
+  "longitude": -46.727033,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 560009201,
+  "nome": "AMARO ALVES DO ROSARIO B/C",
+  "endereco": "R AMERICO COXA/ R AMARO ALVES DO ROSARIO",
+  "latitude": -23.814648,
+  "longitude": -46.735225,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 560009200,
+  "nome": "AMARO ALVES DO ROSARIO C/B",
+  "endereco": "R AMERICO COXA/ R AMARO ALVES DO ROSARIO",
+  "latitude": -23.814559,
+  "longitude": -46.73533,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 560009175,
+  "nome": "ANA CAROLINA B/C",
+  "endereco": "R CAROLINA REIMBERG/ R HENRIQUE HESSEL",
+  "latitude": -23.803805,
+  "longitude": -46.73479,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 560009176,
+  "nome": "ANA CAROLINA C/B",
+  "endereco": "R CAROLINA REIMBERG/ R JACOB ROSCHEL CHRISTE",
+  "latitude": -23.804004,
+  "longitude": -46.735246,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 810009900,
+  "nome": "ÂNGELO SANTI B/C",
+  "endereco": "AV DANTON JOBIM/ R ANGELO SANTI",
+  "latitude": -23.692723,
+  "longitude": -46.701536,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 810009905,
+  "nome": "ANTONIO M. SANTOS B/C",
+  "endereco": "R HOMERO VAZ DO AMARAL/ R JOAO DE PAULA FRANCO",
+  "latitude": -23.68385,
+  "longitude": -46.703244,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 810009906,
+  "nome": "ARNOLDO FELMANAS B/C",
+  "endereco": "R ARMANDO FELMANAS/ AV DANTON JOBIM",
+  "latitude": -23.682396,
+  "longitude": -46.704332,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 810009907,
+  "nome": "ARNOLDO FELMANAS C/B",
+  "endereco": "R ARMANDO FELMANAS/ AV DANTON JOBIM",
+  "latitude": -23.682264,
+  "longitude": -46.704608,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 560009171,
+  "nome": "BALTAZARINI B/C",
+  "endereco": "R HENRIQUE HESSEL/ R JOSE ROSCHEL RODRIGUES",
+  "latitude": -23.798989,
+  "longitude": -46.731158,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 560009172,
+  "nome": "BALTAZARINI C/B",
+  "endereco": "R HENRIQUE HESSEL/ R JOSE ROSCHEL RODRIGUES",
+  "latitude": -23.799048,
+  "longitude": -46.731426,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 230009867,
+  "nome": "BARRAL B/C",
+  "endereco": "RUA JACQUES STELLA",
+  "latitude": -23.739261,
+  "longitude": -46.70143,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 230009840,
+  "nome": "BARRAL C/B",
+  "endereco": "RUA JACQUES STELLA",
+  "latitude": -23.739357,
+  "longitude": -46.701669,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 230009868,
+  "nome": "BELMIRA MARIN B/C",
+  "endereco": "ACESSO A R OSCAR NELSON/ ACESSO A AV DONA BELMIRA MARIN",
+  "latitude": -23.73454,
+  "longitude": -46.698876,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 230009839,
+  "nome": "BELMIRA MARIN C/B",
+  "endereco": "ACESSO A R OSCAR NELSON/ ACESSO A AV DONA BELMIRA MARIN",
+  "latitude": -23.734741,
+  "longitude": -46.699142,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 810009818,
+  "nome": "BENEDITO F. DA SILVA C/B",
+  "endereco": "AV BENEDITO FERREIRA SILVA/ R JOAO CORREA DOS SANTOS",
+  "latitude": -23.697341,
+  "longitude": -46.701501,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 810009884,
+  "nome": "BIAZZO SAVINO C/B",
+  "endereco": "R FERRUCIO DUPRE/ AV ANTONIO BARBOSA DA SILVA SANDOVAL",
+  "latitude": -23.69454,
+  "longitude": -46.701593,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 810009901,
+  "nome": "BRASÍLIA P. OLIVEIRA B/C",
+  "endereco": "R BENTO RODRIGUES BASTOS/ R BRASILIA PIRES DE OLIVEIRA",
+  "latitude": -23.690097,
+  "longitude": -46.701478,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 810009910,
+  "nome": "BRASÍLIO M. NETO C/B",
+  "endereco": "R DOUTOR BRASILIO MACHADO NETO/ R RITA FERREIRA DA SILVA",
+  "latitude": -23.677364,
+  "longitude": -46.707491,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 810009903,
+  "nome": "BRASÍLIO VEIGA",
+  "endereco": "R BRASILIO VEIGA/ R VESUVIO",
+  "latitude": -23.686008,
+  "longitude": -46.702349,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 230009858,
+  "nome": "CRISTIAN ANDERSEN B/C",
+  "endereco": "R LUIZ SUPERTTI/ R DAVID FABRICIUS",
+  "latitude": -23.757982,
+  "longitude": -46.7147,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 230009962,
+  "nome": "DOMENICO LAURO C/B",
+  "endereco": "R DOMENICO LAURO/ R ESTEVAO FABRI",
+  "latitude": -23.717209,
+  "longitude": -46.704407,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 230009961,
+  "nome": "DOMÊNICO LAURO C/B",
+  "endereco": "R DOMENICO LAURO/ R ESTEVAO FABRI",
+  "latitude": -23.717418,
+  "longitude": -46.704305,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 810009909,
+  "nome": "DOS LAGOS C/B",
+  "endereco": "AV DOS LAGOS/ R GUARATIBA",
+  "latitude": -23.680716,
+  "longitude": -46.705867,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 230009860,
+  "nome": "DOS MENDES B/C",
+  "endereco": "R LUIZ ROTTA / R VITOR LIMA BARRETO",
+  "latitude": -23.750864,
+  "longitude": -46.710384,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 230009847,
+  "nome": "DOS MENDES C/B",
+  "endereco": "R LUIZ ROTTA/ R VITOR LIMA BARRETO",
+  "latitude": -23.751025,
+  "longitude": -46.710625,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 560009162,
+  "nome": "ELEVATÓRIA SABESP B/C",
+  "endereco": "R NIELS CHRISTIAN SOERENSEN/ R JOSE NICOLAU DE LIMA",
+  "latitude": -23.78024,
+  "longitude": -46.724711,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 560009163,
+  "nome": "ELEVATÓRIA SABESP C/B",
+  "endereco": "R NIELS CHRISTIAN SOERENSEN/ R JOSE NICOLAU DE LIMA",
+  "latitude": -23.781379,
+  "longitude": -46.725802,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 560009173,
+  "nome": "ESTRADA DO PAIOL B/C",
+  "endereco": "R CAROLINA REIMBERG/ R HENRIQUE HESSEL",
+  "latitude": -23.80117,
+  "longitude": -46.733875,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 560009174,
+  "nome": "ESTRADA DO PAIOL C/B",
+  "endereco": "R CAROLINA REIMBERG/ R HENRIQUE HESSEL",
+  "latitude": -23.801384,
+  "longitude": -46.734008,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 560009170,
+  "nome": "ESTRADA DO PINHAL B/C",
+  "endereco": "AV FERNANDO DA CRUZ ALVES/ R JOSE ROSCHEL RODRIGUES",
+  "latitude": -23.793253,
+  "longitude": -46.729063,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 560009169,
+  "nome": "ESTRADA DO PINHAL C/B",
+  "endereco": "AV FERNANDO DA CRUZ ALVES/ R JOSE ROSCHEL RODRIGUES",
+  "latitude": -23.793311,
+  "longitude": -46.729377,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 810009912,
+  "nome": "EUCLYDES DA CUNHA C/B",
+  "endereco": "RUA ESPERANÇA",
+  "latitude": -23.673848,
+  "longitude": -46.709334,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 5614545,
+  "nome": "EUZÉBIO COGHI B/C",
+  "endereco": "RUA EUZÉBIO COGHI",
+  "latitude": -23.826443,
+  "longitude": -46.732218,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 5614562,
+  "nome": "EUZÉBIO COGHI C/B",
+  "endereco": "RUA EUZÉBIO COGHI",
+  "latitude": -23.826589,
+  "longitude": -46.732317,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 230016401,
+  "nome": "GUAIÚBA  B/C",
+  "endereco": "R GUAIUBA/ R JUNDIAZINHO",
+  "latitude": -23.708653,
+  "longitude": -46.699795,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 810009908,
+  "nome": "GUARATIBA B/C",
+  "endereco": "AV DOS LAGOS/ R GUARATIBA",
+  "latitude": -23.680668,
+  "longitude": -46.705725,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 230009849,
+  "nome": "HANS CHRISTIAN ANDERSEN C/B",
+  "endereco": "R LUIZ SUPERTTI/ R DAVID FABRICIUS",
+  "latitude": -23.758279,
+  "longitude": -46.714973,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 230009864,
+  "nome": "HILÁRIO B/C",
+  "endereco": "PC CRISTINA BOEMER ROSCHEL/ R MARCANTONIO RAIMONDI",
+  "latitude": -23.744767,
+  "longitude": -46.707007,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 230009844,
+  "nome": "HILÁRIO C/B",
+  "endereco": "R MARCANTONIO RAIMONDI/ R RUBEM SOUTO DE ARAUJO",
+  "latitude": -23.744971,
+  "longitude": -46.70707,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 230009883,
+  "nome": "INTERLAGOS B/C",
+  "endereco": "AV AUTODROMO/ AV INTERLAGOS -- 27º BPM",
+  "latitude": -23.701925,
+  "longitude": -46.701283,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 230009480,
+  "nome": "JANGADEIRO C/B",
+  "endereco": "AV SENADOR TEOTONIO VILELA/ AV INTERLAGOS",
+  "latitude": -23.706106,
+  "longitude": -46.7011,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 230009882,
+  "nome": "JAQUIRANA B/C",
+  "endereco": "R JAQUIRANA/ AV DO JANGADEIRO",
+  "latitude": -23.705632,
+  "longitude": -46.700488,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 810009943,
+  "nome": "JOÃO DE BARROS B/C",
+  "endereco": "AV DO RIO BONITO",
+  "latitude": -23.676013,
+  "longitude": -46.712366,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 810009944,
+  "nome": "JOÃO DE BARROS C/B",
+  "endereco": "AV DO RIO BONITO",
+  "latitude": -23.676253,
+  "longitude": -46.712471,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 560009192,
+  "nome": "JOSÉ LA TORRE B/C",
+  "endereco": "R MANUCAIA/ R JOSE LA TORRE",
+  "latitude": -23.806909,
+  "longitude": -46.736403,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 560009193,
+  "nome": "JOSÉ LA TORRE C/B",
+  "endereco": "R MANUCAIA/ R JOSE LA TORRE",
+  "latitude": -23.807221,
+  "longitude": -46.736706,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 560009159,
+  "nome": "JOSÉ NICOLAU DE LIMA B/C",
+  "endereco": "R JOSE NICOLAU DE LIMA/ AV DO JACEGUAVA",
+  "latitude": -23.777013,
+  "longitude": -46.722914,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 560009160,
+  "nome": "JOSÉ NICOLAU DE LIMA C/B",
+  "endereco": "R JOSE NICOLAU DE LIMA/ AV DO JACEGUAVA",
+  "latitude": -23.777145,
+  "longitude": -46.72303,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 5614543,
+  "nome": "JUZA B/C",
+  "endereco": "ESTRADA DO JUZA",
+  "latitude": -23.822356,
+  "longitude": -46.735702,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 5614560,
+  "nome": "JUZA C/B",
+  "endereco": "ESTRADA DO JUZA",
+  "latitude": -23.820704,
+  "longitude": -46.736166,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 810009951,
+  "nome": "LEONARDO DE FASSIO B/C",
+  "endereco": "PC ISRAEL/ R PEIXE VIVO",
+  "latitude": -23.693558,
+  "longitude": -46.714792,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 810009952,
+  "nome": "LEONARDO DE FASSIO C/B",
+  "endereco": "PC ISRAEL/ R PEIXE VIVO",
+  "latitude": -23.693802,
+  "longitude": -46.714902,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 230009870,
+  "nome": "LOUREIRO ROSA B/C",
+  "endereco": "R TSUNEO HATA/ R OSVALDO ALVARISTO CORNELIO",
+  "latitude": -23.728978,
+  "longitude": -46.698816,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 230009838,
+  "nome": "LOUREIRO ROSA C/B",
+  "endereco": "R TSUNEO HATA/ R OSVALDO ALVARISTO CORNELIO",
+  "latitude": -23.730114,
+  "longitude": -46.698382,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 230009861,
+  "nome": "LUÍS ROTA B/C",
+  "endereco": "R LUIZ ROTTA/ R VITOR LIMA BARRETO",
+  "latitude": -23.747413,
+  "longitude": -46.707998,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 230009846,
+  "nome": "LUIS ROTA C/B",
+  "endereco": "R LUIZ ROTTA/ R VITOR LIMA BARRETO",
+  "latitude": -23.747583,
+  "longitude": -46.708243,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 560009197,
+  "nome": "LUÍZ BUENO B/C",
+  "endereco": "R SAVERIO DE DONATO/ R ROMAO BOETA",
+  "latitude": -23.811252,
+  "longitude": -46.736391,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 560009196,
+  "nome": "LUÍZ BUENO C/B",
+  "endereco": "R SAVERIO DE DONATO/ R ROMAO BOETA",
+  "latitude": -23.811203,
+  "longitude": -46.736612,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 810009945,
+  "nome": "MAR DEL PLATA B/C",
+  "endereco": "RUA EDSON REGIS",
+  "latitude": -23.680203,
+  "longitude": -46.713075,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 810009946,
+  "nome": "MAR DEL PLATA C/B",
+  "endereco": "RUA EDSON REGIS",
+  "latitude": -23.680322,
+  "longitude": -46.713208,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 810009904,
+  "nome": "MARIA A. CARDIA C/B",
+  "endereco": "R VESUVIO/ R OSCAR FERNANDES",
+  "latitude": -23.685727,
+  "longitude": -46.702547,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 230009957,
+  "nome": "MÁRIO MARTINS B/C",
+  "endereco": "R MARIO MARTINS DE ALMEIDA/ AV NICOLAU ALAYON",
+  "latitude": -23.710603,
+  "longitude": -46.71126,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 230009958,
+  "nome": "MÁRIO MARTINS C/B",
+  "endereco": "R MARIO MARTINS DE ALMEIDA/ AV NICOLAU ALAYON",
+  "latitude": -23.710844,
+  "longitude": -46.711251,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 230009826,
+  "nome": "MARLY O. COBRA B/C",
+  "endereco": "R SILVES/ R RORAIMA",
+  "latitude": -23.716251,
+  "longitude": -46.699069,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 810009950,
+  "nome": "NICOLAU B/C",
+  "endereco": "RUA RIMINI",
+  "latitude": -23.688202,
+  "longitude": -46.714573,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 810009949,
+  "nome": "NICOLAU C/B",
+  "endereco": "AV PASCOAL DA ROCHA FALCAO/ R RIMINI",
+  "latitude": -23.688398,
+  "longitude": -46.714671,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 560009165,
+  "nome": "NIELS C. SORENSEN B/C",
+  "endereco": "R NIELS CHRISTIAN SOERENSEN/ R JOSE NICOLAU DE LIMA",
+  "latitude": -23.786102,
+  "longitude": -46.726012,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 560009164,
+  "nome": "NIELS C. SORENSEN C/B",
+  "endereco": "R NIELS CHRISTIAN SOERENSEN/ R JOSE NICOLAU DE LIMA",
+  "latitude": -23.785907,
+  "longitude": -46.726102,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 230009960,
+  "nome": "PAPINI B/C",
+  "endereco": "R DOUTOR MARIO OTTOBRINI COSTA/ AV ALCINDO FERREIRA",
+  "latitude": -23.713754,
+  "longitude": -46.708494,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 230009959,
+  "nome": "PAPINI C/B",
+  "endereco": "R DOUTOR MARIO OTTOBRINI COSTA/ AV ALCINDO FERREIRA",
+  "latitude": -23.714005,
+  "longitude": -46.708388,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 230009822,
+  "nome": "PARADA 1 - JUNDIAZINHO C/B",
+  "endereco": "R PADRE JOSE GARZOTTI/ R JUNDIAZINHO",
+  "latitude": -23.710168,
+  "longitude": -46.699547,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 810009963,
+  "nome": "PARADA 1 - LARGO DO SOCORRO B/C",
+  "endereco": "AV CARLOS KLEIN/ LARGO DO SOCORRO",
+  "latitude": -23.667272,
+  "longitude": -46.712002,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 7203067,
+  "nome": "PARADA 1 - VITOR MANZINI C/B",
+  "endereco": "ET. VITOR MANZINI CB - PARADA 1",
+  "latitude": -23.662454,
+  "longitude": -46.706724,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 810009964,
+  "nome": "PARADA 2 - LARGO DO SOCORRO B/C",
+  "endereco": "AV CARLOS KLEIN/ LARGO DO SOCORRO - CEMES",
+  "latitude": -23.666568,
+  "longitude": -46.711984,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 230009823,
+  "nome": "PARADA 2 - PE. JOSÉ GARZOTTI C/B",
+  "endereco": "R ANIBAL DOS ANJOS CARVALHO/ R PADRE JOSE GARZOTTI",
+  "latitude": -23.711261,
+  "longitude": -46.699107,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 7206633,
+  "nome": "PARADA 2 - VITOR MANZINI C/B",
+  "endereco": "ET. VITOR MANZINI CB - PARADA 2",
+  "latitude": -23.662868,
+  "longitude": -46.70712,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 810009941,
+  "nome": "PARADA DOS INOCENTES B/C",
+  "endereco": "RUA DOS INOCENTES",
+  "latitude": -23.672073,
+  "longitude": -46.712195,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 810009942,
+  "nome": "PARADA DOS INOCENTES C/B",
+  "endereco": "RUA DOS INOCENTES",
+  "latitude": -23.672299,
+  "longitude": -46.71233,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 720010437,
+  "nome": "PARADA EUSÉBIO STEVAUX B/C",
+  "endereco": "R GALENO DE CASTRO/ AV ENGENHEIRO EUSÉBIO STEVAUX",
+  "latitude": -23.662256,
+  "longitude": -46.706246,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 810009956,
+  "nome": "PARANÓPOLIS B/C",
+  "endereco": "AV PARANOPOLIS/ PC PROFESSOR MELLO E SOUZA",
+  "latitude": -23.70107,
+  "longitude": -46.715025,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 810009955,
+  "nome": "PARANÓPOLIS C/B",
+  "endereco": "AV PARANOPOLIS/ PC PROFESSOR MELLO E SOUZA",
+  "latitude": -23.701271,
+  "longitude": -46.715123,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 230009824,
+  "nome": "PAULO WHITAKER B/C",
+  "endereco": "R DOUTOR PAULO DE BARROS WHITAKER/ R DINAZAR FERRAZ DE CAMARGO",
+  "latitude": -23.713286,
+  "longitude": -46.698421,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 810009954,
+  "nome": "PORTO ARTUR B/C",
+  "endereco": "R PORTO ARTUR/ R ORTIZ",
+  "latitude": -23.696421,
+  "longitude": -46.714903,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 810009953,
+  "nome": "PORTO ARTUR C/B",
+  "endereco": "R PORTO ARTUR/ R ORTIZ",
+  "latitude": -23.696586,
+  "longitude": -46.715013,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 810009948,
+  "nome": "PRIMO TISSELI B/C",
+  "endereco": "R PRIMO TISSELI/ R DOM MORAIS TORRES",
+  "latitude": -23.684024,
+  "longitude": -46.71441,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 810009947,
+  "nome": "PRIMO TISSELI C/B",
+  "endereco": "RUA PRIMO TISSELI",
+  "latitude": -23.684257,
+  "longitude": -46.714514,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 5614561,
+  "nome": "RAVELLO B/C",
+  "endereco": "RUA TOMAZ SANDRINO",
+  "latitude": -23.824717,
+  "longitude": -46.734245,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 5614544,
+  "nome": "RAVELLO C/B",
+  "endereco": "RUA TOMAZ SANDRINO",
+  "latitude": -23.825161,
+  "longitude": -46.733938,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 230009831,
+  "nome": "RIO BONITO DIREITA B/C",
+  "endereco": "R FREDERICO RENE DE JAEGHER / AV ATLANTICA",
+  "latitude": -23.718222,
+  "longitude": -46.698884,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 230009828,
+  "nome": "RIO BONITO DIREITA C/B",
+  "endereco": "R FREDERICO RENE DE JAEGHER / AV ATLANTICA",
+  "latitude": -23.718455,
+  "longitude": -46.698938,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 230009829,
+  "nome": "RIO BONITO ESQUERDA B/C CENTRAL",
+  "endereco": "R FREDERICO RENE DE JAEGHER/ AV ATLANTICA",
+  "latitude": -23.71823,
+  "longitude": -46.698916,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 230009830,
+  "nome": "RIO BONITO ESQUERDA C/B CENTRAL",
+  "endereco": "R FREDERICO RENE DE JAEGHER/ AV ATLANTICA",
+  "latitude": -23.718463,
+  "longitude": -46.698922,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 810009911,
+  "nome": "RITA F. SILVA B/C",
+  "endereco": "R DOUTOR BRASILIO MACHADO NETO/ R RITA FERREIRA DA SILVA",
+  "latitude": -23.676814,
+  "longitude": -46.707615,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 230009871,
+  "nome": "RODRIGUES VILARES B/C",
+  "endereco": "AV RODRIGUES VILARES/ ACESSO A AV DO ARVOREIRO",
+  "latitude": -23.726689,
+  "longitude": -46.699391,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 230009836,
+  "nome": "RODRIGUES VILARES C/B",
+  "endereco": "R TSUNEO HATA/ R MARIA CASUSA FEITOSA",
+  "latitude": -23.7279,
+  "longitude": -46.699209,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 560009194,
+  "nome": "ROMÃO BOETA B/C",
+  "endereco": "R SAVERIO DE DONATO/ R ROMAO BOETA",
+  "latitude": -23.808968,
+  "longitude": -46.736957,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 560009195,
+  "nome": "ROMÃO BOETA C/B",
+  "endereco": "R SAVERIO DE DONATO/ R ROMAO BOETA",
+  "latitude": -23.809148,
+  "longitude": -46.737211,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 230009825,
+  "nome": "RORAIMA C/B",
+  "endereco": "R SILVES/ R RORAIMA",
+  "latitude": -23.71618,
+  "longitude": -46.699274,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 810009819,
+  "nome": "SABESP B/C",
+  "endereco": "AV BENEDITO FERREIRA SILVA/ R TRASYBULO PINHEIRO ALBUQUERQUE",
+  "latitude": -23.696624,
+  "longitude": -46.701437,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 230009841,
+  "nome": "SÃO FRANCISCO B/C",
+  "endereco": "RUA ACOR",
+  "latitude": -23.740691,
+  "longitude": -46.704539,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 230009866,
+  "nome": "SÃO FRANCISCO C/B",
+  "endereco": "RUA ACOR",
+  "latitude": -23.740637,
+  "longitude": -46.704266,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 230009856,
+  "nome": "SÃO JOSÉ B/C",
+  "endereco": "ACESSO A AV PAULO GUILGUER REIMBERG/ ACESSO A R LUIZ SUPERTTI -- Costas - SAMU",
+  "latitude": -23.764873,
+  "longitude": -46.716688,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 230009852,
+  "nome": "SÃO JOSÉ C/B",
+  "endereco": "ACESSO A AV PAULO GUILGUER REIMBERG/ ACESSO A R LUIZ SUPERTTI -- Frente - SAMU",
+  "latitude": -23.765082,
+  "longitude": -46.716787,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 560009232,
+  "nome": "SATÉLITE ARIEL B/C",
+  "endereco": "R AMARO ALVES DO ROSARIO/ R ARCELINA TEIXEIRA DA SILVA",
+  "latitude": -23.773112,
+  "longitude": -46.720299,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 560009203,
+  "nome": "SERVIDÃO B/C",
+  "endereco": "R AMERICO COXA/ R AMARO ALVES DO ROSARIO",
+  "latitude": -23.817602,
+  "longitude": -46.734311,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 560009202,
+  "nome": "SERVIDÃO C/B",
+  "endereco": "R AMERICO COXA/ R AMARO ALVES DO ROSARIO",
+  "latitude": -23.817306,
+  "longitude": -46.73455,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 810009913,
+  "nome": "XAVIER DE MATOS B/C",
+  "endereco": "R NOSSA SENHORA DO SOCORRO/ R ALEXANDRE CORREIA DA SILVA",
+  "latitude": -23.672514,
+  "longitude": -46.709872,
+  "codigo_corredor": 7,
+  "corredor": "Corredor Parelheiros / Rio Bonito / Santo Amaro"
+ },
+ {
+  "codigo_parada": 260016859,
+  "nome": "ANTÔNIA DE QUEIRÓS - B/C",
+  "endereco": "R DONA ANTONIA DE QUEIROS/ R PIAUI",
+  "latitude": -23.549577,
+  "longitude": -46.653216,
+  "codigo_corredor": 8,
+  "corredor": "Corredor Campo Limpo / Rebouças / Centro"
+ },
+ {
+  "codigo_parada": 260016858,
+  "nome": "ANTÔNIA DE QUEIRÓS - C/B",
+  "endereco": "R DONA ANTONIA DE QUEIROS/ R PIAUI",
+  "latitude": -23.54958,
+  "longitude": -46.65343,
+  "codigo_corredor": 8,
+  "corredor": "Corredor Campo Limpo / Rebouças / Centro"
+ },
+ {
+  "codigo_parada": 630015008,
+  "nome": "BRASIL B/C",
+  "endereco": "PC PORTUGAL/ R CONEGO EUGENIO LEITE",
+  "latitude": -23.564642,
+  "longitude": -46.678602,
+  "codigo_corredor": 8,
+  "corredor": "Corredor Campo Limpo / Rebouças / Centro"
+ },
+ {
+  "codigo_parada": 440015003,
+  "nome": "BRASIL C/B",
+  "endereco": "R HENRIQUE SCHAUMANN/ R LISBOA",
+  "latitude": -23.564096,
+  "longitude": -46.677671,
+  "codigo_corredor": 8,
+  "corredor": "Corredor Campo Limpo / Rebouças / Centro"
+ },
+ {
+  "codigo_parada": 260016861,
+  "nome": "CAIO PRADO B/C",
+  "endereco": "R MARQUES DE PARANAGUA/ R MARIA ANTONIA",
+  "latitude": -23.548174,
+  "longitude": -46.649565,
+  "codigo_corredor": 8,
+  "corredor": "Corredor Campo Limpo / Rebouças / Centro"
+ },
+ {
+  "codigo_parada": 260016860,
+  "nome": "CAIO PRADO C/B",
+  "endereco": "R MARQUES DE PARANAGUA/ R MARIA ANTONIA",
+  "latitude": -23.548312,
+  "longitude": -46.650406,
+  "codigo_corredor": 8,
+  "corredor": "Corredor Campo Limpo / Rebouças / Centro"
+ },
+ {
+  "codigo_parada": 630015009,
+  "nome": "CAP. ANTONIO ROSA B/C",
+  "endereco": "R DANTE CARRARO/ R CAPITAO ANTONIO ROSA",
+  "latitude": -23.567915,
+  "longitude": -46.684758,
+  "codigo_corredor": 8,
+  "corredor": "Corredor Campo Limpo / Rebouças / Centro"
+ },
+ {
+  "codigo_parada": 630015010,
+  "nome": "CAP. ANTONIO ROSA C/B",
+  "endereco": "R TECAINDA/ R CAPITAO ANTONIO ROSA",
+  "latitude": -23.567619,
+  "longitude": -46.684372,
+  "codigo_corredor": 8,
+  "corredor": "Corredor Campo Limpo / Rebouças / Centro"
+ },
+ {
+  "codigo_parada": 440015006,
+  "nome": "CLINICAS B/C",
+  "endereco": "R DOUTOR OVIDIO PIRES DE CAMPOS/ R MELO ALVES",
+  "latitude": -23.558088,
+  "longitude": -46.667585,
+  "codigo_corredor": 8,
+  "corredor": "Corredor Campo Limpo / Rebouças / Centro"
+ },
+ {
+  "codigo_parada": 440015007,
+  "nome": "CLÍNICAS C/B",
+  "endereco": "R DOUTOR OVIDIO PIRES DE CAMPOS/ R MELO ALVES",
+  "latitude": -23.558083,
+  "longitude": -46.667869,
+  "codigo_corredor": 8,
+  "corredor": "Corredor Campo Limpo / Rebouças / Centro"
+ },
+ {
+  "codigo_parada": 120011360,
+  "nome": "DRAUSIO B/C",
+  "endereco": "R MIRAGAIA/ R DRAUSIO",
+  "latitude": -23.576878,
+  "longitude": -46.707716,
+  "codigo_corredor": 8,
+  "corredor": "Corredor Campo Limpo / Rebouças / Centro"
+ },
+ {
+  "codigo_parada": 120011361,
+  "nome": "DRAUSIO C/B",
+  "endereco": "R MIRAGAIA/ R DRAUSIO",
+  "latitude": -23.577163,
+  "longitude": -46.707965,
+  "codigo_corredor": 8,
+  "corredor": "Corredor Campo Limpo / Rebouças / Centro"
+ },
+ {
+  "codigo_parada": 960011372,
+  "nome": "EDEN B/C",
+  "endereco": "R CENOBELINO SERRA/ R EDEN",
+  "latitude": -23.588191,
+  "longitude": -46.727332,
+  "codigo_corredor": 8,
+  "corredor": "Corredor Campo Limpo / Rebouças / Centro"
+ },
+ {
+  "codigo_parada": 960011373,
+  "nome": "EDEN C/B",
+  "endereco": "R CENOBELINO SERRA/ R EDEN",
+  "latitude": -23.588431,
+  "longitude": -46.727769,
+  "codigo_corredor": 8,
+  "corredor": "Corredor Campo Limpo / Rebouças / Centro"
+ },
+ {
+  "codigo_parada": 550011364,
+  "nome": "FUND CARLOS CHAGAS B/C",
+  "endereco": "R SANHARO/ R LADISLAU ROMAN",
+  "latitude": -23.582811,
+  "longitude": -46.713863,
+  "codigo_corredor": 8,
+  "corredor": "Corredor Campo Limpo / Rebouças / Centro"
+ },
+ {
+  "codigo_parada": 550011365,
+  "nome": "FUND CARLOS CHAGAS C/B",
+  "endereco": "R GENERAL SENA VASCONCELOS/ R SANHARO",
+  "latitude": -23.582898,
+  "longitude": -46.71419,
+  "codigo_corredor": 8,
+  "corredor": "Corredor Campo Limpo / Rebouças / Centro"
+ },
+ {
+  "codigo_parada": 960011369,
+  "nome": "JORGE JOÃO SAAD B/C",
+  "endereco": "R DOUTOR ALEXANDRE MARCONDES FILHO/ AV DEPUTADO JACOB SALVADOR ZVEIBI",
+  "latitude": -23.586951,
+  "longitude": -46.725216,
+  "codigo_corredor": 8,
+  "corredor": "Corredor Campo Limpo / Rebouças / Centro"
+ },
+ {
+  "codigo_parada": 960011368,
+  "nome": "JORGE JOÃO SAAD C/B",
+  "endereco": "R ANGELO COLUCCI/ AV JORGE JOAO SAAD",
+  "latitude": -23.586423,
+  "longitude": -46.723955,
+  "codigo_corredor": 8,
+  "corredor": "Corredor Campo Limpo / Rebouças / Centro"
+ },
+ {
+  "codigo_parada": 440015004,
+  "nome": "OSCAR FREIRE B/C",
+  "endereco": "R OSCAR FREIRE/ R CHABAD",
+  "latitude": -23.560639,
+  "longitude": -46.672095,
+  "codigo_corredor": 8,
+  "corredor": "Corredor Campo Limpo / Rebouças / Centro"
+ },
+ {
+  "codigo_parada": 440015005,
+  "nome": "OSCAR FREIRE C/B",
+  "endereco": "R OSCAR FREIRE/ AL LORENA",
+  "latitude": -23.560245,
+  "longitude": -46.671642,
+  "codigo_corredor": 8,
+  "corredor": "Corredor Campo Limpo / Rebouças / Centro"
+ },
+ {
+  "codigo_parada": 630015017,
+  "nome": "PARADA 1 - ELDORADO C/B",
+  "endereco": "R JORGE RIZZO/ R SAO COLUMBANO",
+  "latitude": -23.571622,
+  "longitude": -46.696564,
+  "codigo_corredor": 8,
+  "corredor": "Corredor Campo Limpo / Rebouças / Centro"
+ },
+ {
+  "codigo_parada": 630015016,
+  "nome": "PARADA 2 - FARIA LIMA B/C",
+  "endereco": "cruzamento Av. Eusébio Matoso e Av. Brig. Faria Lima",
+  "latitude": -23.571182,
+  "longitude": -46.691378,
+  "codigo_corredor": 8,
+  "corredor": "Corredor Campo Limpo / Rebouças / Centro"
+ },
+ {
+  "codigo_parada": 630015011,
+  "nome": "PARADA 2 - FARIA LIMA C/B",
+  "endereco": "cruzamento Av. Rebouças e Av. Brig. Faria Lima",
+  "latitude": -23.570905,
+  "longitude": -46.690499,
+  "codigo_corredor": 8,
+  "corredor": "Corredor Campo Limpo / Rebouças / Centro"
+ },
+ {
+  "codigo_parada": 630015015,
+  "nome": "PARADA ELDORADO B/C",
+  "endereco": "R JORGE RIZZO/ R SAO COLUMBANO",
+  "latitude": -23.571709,
+  "longitude": -46.696577,
+  "codigo_corredor": 8,
+  "corredor": "Corredor Campo Limpo / Rebouças / Centro"
+ },
+ {
+  "codigo_parada": 550011358,
+  "nome": "PARADA VITAL BRASIL B/C",
+  "endereco": "R MMDC/ AV LINEU DE PAULA MACHADO",
+  "latitude": -23.572945,
+  "longitude": -46.705052,
+  "codigo_corredor": 8,
+  "corredor": "Corredor Campo Limpo / Rebouças / Centro"
+ },
+ {
+  "codigo_parada": 120011357,
+  "nome": "PARADA VITAL BRASIL C/B",
+  "endereco": "R MMDC/ AV LINEU DE PAULA MACHADO",
+  "latitude": -23.573035,
+  "longitude": -46.705392,
+  "codigo_corredor": 8,
+  "corredor": "Corredor Campo Limpo / Rebouças / Centro"
+ },
+ {
+  "codigo_parada": 260015039,
+  "nome": "PAULISTA B/C",
+  "endereco": "AV PAULISTA/ AV REBOUCAS",
+  "latitude": -23.555883,
+  "longitude": -46.66306,
+  "codigo_corredor": 8,
+  "corredor": "Corredor Campo Limpo / Rebouças / Centro"
+ },
+ {
+  "codigo_parada": 260016855,
+  "nome": "PAULISTA C/B",
+  "endereco": "AV PAULISTA/ R ANTONIO CARLOS",
+  "latitude": -23.555176,
+  "longitude": -46.66237,
+  "codigo_corredor": 8,
+  "corredor": "Corredor Campo Limpo / Rebouças / Centro"
+ },
+ {
+  "codigo_parada": 260016857,
+  "nome": "PEDRO TAQUES B/C",
+  "endereco": "R CORONEL JOSE EUSEBIO/ R PEDRO TAQUES",
+  "latitude": -23.551843,
+  "longitude": -46.657399,
+  "codigo_corredor": 8,
+  "corredor": "Corredor Campo Limpo / Rebouças / Centro"
+ },
+ {
+  "codigo_parada": 260016856,
+  "nome": "PEDRO TAQUES C/B",
+  "endereco": "R CORONEL JOSE EUSEBIO/ R PEDRO TAQUES",
+  "latitude": -23.551813,
+  "longitude": -46.657607,
+  "codigo_corredor": 8,
+  "corredor": "Corredor Campo Limpo / Rebouças / Centro"
+ },
+ {
+  "codigo_parada": 550011362,
+  "nome": "ROQUETE PINTO B/C",
+  "endereco": "R DOUTOR QUEIROS GUIMARAES/ R PORTO GRANDE",
+  "latitude": -23.58095,
+  "longitude": -46.711425,
+  "codigo_corredor": 8,
+  "corredor": "Corredor Campo Limpo / Rebouças / Centro"
+ },
+ {
+  "codigo_parada": 120011363,
+  "nome": "ROQUETE PINTO C/B",
+  "endereco": "R DOUTOR QUEIROS GUIMARAES/ R PORTO GRANDE",
+  "latitude": -23.58127,
+  "longitude": -46.711786,
+  "codigo_corredor": 8,
+  "corredor": "Corredor Campo Limpo / Rebouças / Centro"
+ },
+ {
+  "codigo_parada": 120011366,
+  "nome": "TRES IRMAOS B/C",
+  "endereco": "R JOSE JANNARELLI/ R TRES IRMAOS",
+  "latitude": -23.584837,
+  "longitude": -46.71869,
+  "codigo_corredor": 8,
+  "corredor": "Corredor Campo Limpo / Rebouças / Centro"
+ },
+ {
+  "codigo_parada": 120011367,
+  "nome": "TRES IRMAOS C/B",
+  "endereco": "R JOSE JANNARELLI/ R TRES IRMAOS",
+  "latitude": -23.584817,
+  "longitude": -46.719021,
+  "codigo_corredor": 8,
+  "corredor": "Corredor Campo Limpo / Rebouças / Centro"
+ }
+]

@@ -7,6 +7,7 @@ from pyspark.sql import functions as F
 from pyspark.sql.window import Window
 
 SCHEMA = "workspace.buslight"
+spark.conf.set("spark.sql.session.timeZone", "America/Sao_Paulo")  # horários no fuso de SP
 qualidade = []
 
 # COMMAND ----------
@@ -68,9 +69,9 @@ janela = Window.partitionBy("prefixo_veiculo", F.date_trunc("minute", "data_hora
 posicao = posicao.withColumn("ordem", F.row_number().over(janela))
 posicao = aplicar_regra(posicao, 2, "Registro duplicado do mesmo veículo no mesmo minuto", "prata_posicao_onibus", F.col("ordem") > 1).drop("ordem")
 
-# regra 3: GPS parado/desatualizado (leitura com mais de 30 min em relação à coleta)
-desatualizado = (F.unix_timestamp("coletado_em") - F.unix_timestamp("data_hora")) > 30 * 60
-posicao = aplicar_regra(posicao, 3, "Posição GPS desatualizada (mais de 30 min)", "prata_posicao_onibus", desatualizado)
+# regra 3: GPS desatualizado (última leitura do veículo com mais de 5 min em relação à coleta)
+desatualizado = (F.unix_timestamp("coletado_em") - F.unix_timestamp("data_hora")) > 5 * 60
+posicao = aplicar_regra(posicao, 3, "Posição GPS desatualizada (mais de 5 min)", "prata_posicao_onibus", desatualizado)
 
 merge(posicao, "prata_posicao_onibus", ["prefixo_veiculo", "data_hora"])
 
@@ -90,8 +91,8 @@ previsao = (
     .select(F.to_timestamp("coletado_em").alias("data_hora_coleta"), F.explode("dados").alias("d"))
     .select(
         "data_hora_coleta",
-        F.col("d.parada.termo_busca").alias("regiao"),
-        F.col("d.parada.ed").alias("endereco"),
+        F.col("d.parada.corredor").alias("regiao"),
+        F.col("d.parada.endereco").alias("endereco"),
         F.col("d.previsao.hr").alias("hora_referencia"),
         F.col("d.previsao.p").alias("p"),
     )

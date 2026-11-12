@@ -8,6 +8,7 @@ from pyspark.sql.window import Window
 
 SCHEMA = "workspace.buslight"
 MARGEM_MIN = 2  # chegar 2 min antes do ônibus
+spark.conf.set("spark.sql.session.timeZone", "America/Sao_Paulo")  # faixa horária no fuso de SP
 
 previsao = spark.table(f"{SCHEMA}.prata_previsao_parada")
 clima = spark.table(f"{SCHEMA}.prata_clima_hora")
@@ -43,7 +44,7 @@ dim_ponto = (
         F.first("endereco", ignorenulls=True).alias("endereco"),
         F.first("latitude").alias("latitude"),
         F.first("longitude").alias("longitude"),
-        F.coalesce(F.first("regiao", ignorenulls=True), F.lit("Zona Leste")).alias("regiao"),
+        F.coalesce(F.first("regiao", ignorenulls=True), F.lit("Zona Sul")).alias("regiao"),
     )
     .withColumn("sk_ponto", F.col("codigo_parada"))
 )

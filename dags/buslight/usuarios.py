@@ -12,7 +12,7 @@ from datetime import date
 
 from faker import Faker
 
-from buslight.coletores import agora, caminho_arquivo
+from buslight.coletores import agora, caminho_arquivo, pontos_monitorados
 
 CAMPOS = ["id_usuario", "telefone", "codigo_parada_favorita", "faixa_horaria_preferida", "cadastrado_em", "gerado_em"]
 FAIXAS = ["madrugada", "manha", "tarde", "noite"]
@@ -32,7 +32,8 @@ def novo_usuario(fake, rng, id_usuario, pontos):
     }
 
 
-def gerar_usuarios(chegada, data, pontos):
+def gerar_usuarios(chegada, data, pontos=None):
+    pontos = pontos or [p["codigo_parada"] for p in pontos_monitorados()]
     fake = Faker("pt_BR")
     Faker.seed(42)
 
