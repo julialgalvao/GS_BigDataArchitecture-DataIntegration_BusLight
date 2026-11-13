@@ -35,11 +35,11 @@ def pasta_chegada():
 
 
 def data_coleta():
-    # execução manual no Airflow 3 não tem data lógica (ds vazio), então usa a data do disparo
+    # data no fuso de SP: o ds do Airflow vem em UTC (a coleta das 22h viraria o dia seguinte)
+    # e a execução manual não tem data lógica, então usa a hora do disparo
     contexto = get_current_context()
-    if contexto.get("ds"):
-        return contexto["ds"]
-    return pendulum.instance(contexto["dag_run"].run_after).in_timezone("America/Sao_Paulo").to_date_string()
+    momento = contexto.get("logical_date") or contexto["dag_run"].run_after
+    return pendulum.instance(momento).in_timezone("America/Sao_Paulo").to_date_string()
 
 
 def lista_variable(nome):
