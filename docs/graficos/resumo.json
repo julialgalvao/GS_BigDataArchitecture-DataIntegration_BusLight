@@ -2,22 +2,25 @@
  "coletas": [
   "sptrans_previsao_2026-11-12_1000",
   "sptrans_previsao_2026-11-12_100429",
-  "sptrans_previsao_2026-11-12_120017"
+  "sptrans_previsao_2026-11-12_120017",
+  "sptrans_previsao_2026-11-12_180017",
+  "sptrans_previsao_2026-11-12_220300"
  ],
  "dias": [
   "2026-11-12"
  ],
  "pontos": 144,
- "linhas": 97,
- "observacoes": 3627,
+ "linhas": 107,
+ "observacoes": 5950,
  "espera_media": 10.7,
- "espera_mediana": 8,
- "espera_p90": 23,
- "pct_acima_20min": 13.6,
- "pct_acima_30min": 3.3,
+ "espera_mediana": 8.0,
+ "espera_p90": 22,
+ "pct_acima_20min": 12.5,
+ "pct_acima_30min": 3.1,
  "espera_media_por_faixa": {
   "manhã": 11.0,
-  "tarde": 10.2
+  "tarde": 10.2,
+  "noite": 10.5
  },
  "top_pontos": [
   {
@@ -26,44 +29,44 @@
   },
   {
    "ponto": "BRASÍLIO M. NETO C/B",
-   "espera_media": 16.3
-  },
-  {
-   "ponto": "CLINICAS B/C",
-   "espera_media": 15.6
-  },
-  {
-   "ponto": "PARADA VITAL BRASIL B/C",
-   "espera_media": 15.5
-  },
-  {
-   "ponto": "PAULISTA B/C",
-   "espera_media": 15.5
-  },
-  {
-   "ponto": "PEDRO TAQUES B/C",
-   "espera_media": 14.8
+   "espera_media": 16.6
   },
   {
    "ponto": "RIO BONITO ESQUERDA C/B CENTRAL",
-   "espera_media": 14.7
+   "espera_media": 15.8
   },
   {
-   "ponto": "PARADA DOS INOCENTES C/B",
-   "espera_media": 14.6
+   "ponto": "DOS LAGOS C/B",
+   "espera_media": 15
   },
   {
-   "ponto": "OSCAR FREIRE B/C",
-   "espera_media": 14.5
+   "ponto": "CLINICAS B/C",
+   "espera_media": 14.4
+  },
+  {
+   "ponto": "CAIO PRADO B/C",
+   "espera_media": 14.2
   },
   {
    "ponto": "ARNOLDO FELMANAS C/B",
-   "espera_media": 14.5
+   "espera_media": 14.1
+  },
+  {
+   "ponto": "PAULISTA B/C",
+   "espera_media": 13.9
+  },
+  {
+   "ponto": "PARADA 2 - PE. JOSÉ GARZOTTI C/B",
+   "espera_media": 13.9
+  },
+  {
+   "ponto": "ANTÔNIA DE QUEIRÓS - B/C",
+   "espera_media": 13.8
   }
  ],
  "espera_media_por_corredor": {
-  "Parelheiros / Rio Bonito / Santo Amaro": 10.1,
-  "Campo Limpo / Rebouças / Centro": 12.2
+  "Parelheiros / Rio Bonito / Santo Amaro": 10.2,
+  "Campo Limpo / Rebouças / Centro": 11.7
  },
  "frota_por_coleta": [
   {
@@ -77,11 +80,21 @@
   {
    "coleta": "2026-11-12T12:00:06.919272-03:00",
    "onibus": 10280
+  },
+  {
+   "coleta": "2026-11-12T18:00:06.058072-03:00",
+   "onibus": 11448
+  },
+  {
+   "coleta": "2026-11-12T22:02:54.132990-03:00",
+   "onibus": 8156
   }
  ],
  "pct_frota_acessivel": 99.9,
- "pct_previstos_acessiveis": 99.8,
- "coletas_com_chuva": 3627,
- "minutos_evitados_por_viagem": 8.8,
+ "pct_previstos_acessiveis": 99.7,
+ "coletas_com_chuva": 4603,
+ "espera_sem_chuva": 11.0,
+ "espera_com_chuva": 10.6,
+ "minutos_evitados_por_viagem": 8.7,
  "horas_evitadas_mes_por_usuario": 3.2
 }
