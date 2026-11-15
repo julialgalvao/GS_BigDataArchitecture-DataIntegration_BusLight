@@ -4,69 +4,74 @@
   "sptrans_previsao_2026-11-12_100429",
   "sptrans_previsao_2026-11-12_120017",
   "sptrans_previsao_2026-11-12_180017",
-  "sptrans_previsao_2026-11-12_220300"
+  "sptrans_previsao_2026-11-12_220300",
+  "sptrans_previsao_2026-11-13_060743",
+  "sptrans_previsao_2026-11-13_120017",
+  "sptrans_previsao_2026-11-13_181015",
+  "sptrans_previsao_2026-11-13_220121"
  ],
  "dias": [
-  "2026-11-12"
+  "2026-11-12",
+  "2026-11-13"
  ],
  "pontos": 144,
- "linhas": 107,
- "observacoes": 5950,
- "espera_media": 10.7,
- "espera_mediana": 8.0,
+ "linhas": 116,
+ "observacoes": 9825,
+ "espera_media": 10.6,
+ "espera_mediana": 8,
  "espera_p90": 22,
- "pct_acima_20min": 12.5,
+ "pct_acima_20min": 12.3,
  "pct_acima_30min": 3.1,
  "espera_media_por_faixa": {
-  "manhã": 11.0,
-  "tarde": 10.2,
+  "manhã": 11.1,
+  "tarde": 9.9,
   "noite": 10.5
  },
  "top_pontos": [
   {
+   "ponto": "RIO BONITO ESQUERDA C/B CENTRAL",
+   "espera_media": 15.9
+  },
+  {
    "ponto": "EUCLYDES DA CUNHA C/B",
-   "espera_media": 17.7
+   "espera_media": 15.3
   },
   {
    "ponto": "BRASÍLIO M. NETO C/B",
-   "espera_media": 16.6
-  },
-  {
-   "ponto": "RIO BONITO ESQUERDA C/B CENTRAL",
-   "espera_media": 15.8
-  },
-  {
-   "ponto": "DOS LAGOS C/B",
-   "espera_media": 15
-  },
-  {
-   "ponto": "CLINICAS B/C",
-   "espera_media": 14.4
-  },
-  {
-   "ponto": "CAIO PRADO B/C",
-   "espera_media": 14.2
-  },
-  {
-   "ponto": "ARNOLDO FELMANAS C/B",
-   "espera_media": 14.1
-  },
-  {
-   "ponto": "PAULISTA B/C",
-   "espera_media": 13.9
+   "espera_media": 14.7
   },
   {
    "ponto": "PARADA 2 - PE. JOSÉ GARZOTTI C/B",
    "espera_media": 13.9
   },
   {
-   "ponto": "ANTÔNIA DE QUEIRÓS - B/C",
-   "espera_media": 13.8
+   "ponto": "CLINICAS B/C",
+   "espera_media": 13.7
+  },
+  {
+   "ponto": "LOUREIRO ROSA C/B",
+   "espera_media": 13.7
+  },
+  {
+   "ponto": "PAULISTA B/C",
+   "espera_media": 13.7
+  },
+  {
+   "ponto": "DOS LAGOS C/B",
+   "espera_media": 13.6
+  },
+  {
+   "ponto": "JANGADEIRO C/B",
+   "espera_media": 13.5
+  },
+  {
+   "ponto": "RUA CATARINO ANDRÉATA",
+   "espera_media": 13.5
   }
  ],
  "espera_media_por_corredor": {
-  "Parelheiros / Rio Bonito / Santo Amaro": 10.2,
-  "Campo Limpo / Rebouças / Centro": 11.7
+  "Parelheiros / Rio Bonito / Santo Amaro": 10.3,
+  "Campo Limpo / Rebouças / Centro": 11.4
  },
  "frota_por_coleta": [
   {
@@ -88,13 +93,29 @@
   {
    "coleta": "2026-11-12T22:02:54.132990-03:00",
    "onibus": 8156
+  },
+  {
+   "coleta": "2026-11-13T06:07:38.141104-03:00",
+   "onibus": 3753
+  },
+  {
+   "coleta": "2026-11-13T12:00:07.544866-03:00",
+   "onibus": 10283
+  },
+  {
+   "coleta": "2026-11-13T18:10:04.053370-03:00",
+   "onibus": 11550
+  },
+  {
+   "coleta": "2026-11-13T22:01:14.831175-03:00",
+   "onibus": 5161
   }
  ],
  "pct_frota_acessivel": 99.9,
  "pct_previstos_acessiveis": 99.7,
- "coletas_com_chuva": 4603,
- "espera_sem_chuva": 11.0,
- "espera_com_chuva": 10.6,
- "minutos_evitados_por_viagem": 8.7,
+ "coletas_com_chuva": 7052,
+ "espera_sem_chuva": 11.4,
+ "espera_com_chuva": 10.3,
+ "minutos_evitados_por_viagem": 8.6,
  "horas_evitadas_mes_por_usuario": 3.2
 }
