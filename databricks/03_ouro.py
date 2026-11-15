@@ -40,12 +40,14 @@ def faixa_horaria(coluna_hora):
 dim_ponto = (
     previsao.groupBy("codigo_parada")
     .agg(
-        F.first("nome_parada", ignorenulls=True).alias("nome"),
+        F.first(F.when(F.trim("nome_parada") != "", F.col("nome_parada")), ignorenulls=True).alias("nome"),
         F.first("endereco", ignorenulls=True).alias("endereco"),
         F.first("latitude").alias("latitude"),
         F.first("longitude").alias("longitude"),
         F.coalesce(F.first("regiao", ignorenulls=True), F.lit("Zona Sul")).alias("regiao"),
     )
+    # a SPTrans devolve nome vazio em alguns pontos; nesse caso usa o endereço
+    .withColumn("nome", F.coalesce(F.col("nome"), F.col("endereco")))
     .withColumn("sk_ponto", F.col("codigo_parada"))
 )
 salvar(dim_ponto, "dim_ponto")
