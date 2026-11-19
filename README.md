@@ -284,9 +284,29 @@ A Ouro entrega ao app três visões prontas e uma dimensão de usuários protegi
 | Melhor horário para sair de casa | `vw_mvp_saia_de_casa` | **Saia de casa às...** – horário recomendado |
 | Usuário e ponto favorito | `dim_usuario` (só `telefone_mascarado`, ex.: `(11) *****-1234`) | **Meus alertas** – nunca exibe o telefone completo |
 
+**Colunas entregues ao app** (um arquivo JSON por visão, atualizado a cada lote enviado ao Databricks, que hoje são as 4 coletas diárias):
+
+| Visão | Colunas (tipo) |
+|---|---|
+| `vw_mvp_mapa_pontos` | `codigo_parada` (bigint), `nome`, `endereco`, `regiao`, `faixa_horaria` (string), `latitude`, `longitude` (double), `espera_media_min` (double), `amostras` (bigint) |
+| `vw_mvp_ranking_linhas` | `codigo_linha` (bigint), `letreiro`, `terminal_principal`, `terminal_secundario` (string), `espera_media_min`, `atraso_medio_min` (double), `posicao` (int) |
+| `vw_mvp_saia_de_casa` | `codigo_parada` (bigint), `ponto`, `linha`, `faixa_horaria` (string), `espera_sem_aviso_min`, `minutos_evitados` (double), `espera_com_aviso_min` (int) |
+| `dim_usuario` (só o que o app recebe) | `sk_usuario` (string), `telefone_mascarado` (string), `sk_ponto_favorito` (bigint), `faixa_horaria_preferida` (string) |
+
 ---
 
 ## 🔒 LGPD
+
+**Dados pessoais do pipeline e o que foi feito com cada um**
+
+| Dado pessoal | Existe no pipeline? | Tratamento |
+|---|---|---|
+| Nome | Não | Não é coletado (minimização) |
+| CPF | Não | Não é coletado (minimização) |
+| E-mail | Não | Não é coletado (minimização) |
+| Telefone (simulado) | Sim, no cadastro de usuários | Aberto só na Prata; na Ouro vira hash SHA-256 (uso interno) e versão mascarada (`(11) *****-1234`), que é a única que o app recebe |
+| Localização exata de uma pessoa | Não | Não é coletada nem guardada; as posições são de ônibus, não de pessoas |
+| Placa de veículo | Não | A SPTrans entrega só o prefixo do ônibus |
 
 | Princípio | Como é aplicado |
 |---|---|
@@ -329,6 +349,7 @@ A Ouro entrega ao app três visões prontas e uma dimensão de usuários protegi
 │   ├── 02_prata.py                 # tratamento, MERGE e qualidade
 │   ├── 03_ouro.py                  # modelo dimensional, LGPD e visões do MVP
 │   ├── 04_exportar_mvp.py          # JSON das visões para o app
+│   ├── 05_verificacoes.py          # MERGE da Prata rodado de novo e integridade da Ouro
 │   └── sql/                        # as 5 consultas
 ├── amostras/                       # um pouco de cada fonte
 ├── analises/
@@ -378,6 +399,7 @@ airflow standalone
 5. Rode `02_prata` e `03_ouro`.
 6. Execute as consultas de `databricks/sql/`.
 7. Rode `04_exportar_mvp` e baixe os JSON de `chegada/_mvp/` para o app.
+8. Rode `05_verificacoes` para conferir que o MERGE não duplica e que a Ouro está íntegra.
 
 ### 3. Análise exploratória e testes
 ```bash
