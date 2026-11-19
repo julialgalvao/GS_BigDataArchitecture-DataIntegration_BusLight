@@ -290,7 +290,7 @@ A Ouro entrega ao app três visões prontas e uma dimensão de usuários protegi
 |---|---|
 | `vw_mvp_mapa_pontos` | `codigo_parada` (bigint), `nome`, `endereco`, `regiao`, `faixa_horaria` (string), `latitude`, `longitude` (double), `espera_media_min` (double), `amostras` (bigint) |
 | `vw_mvp_ranking_linhas` | `codigo_linha` (bigint), `letreiro`, `terminal_principal`, `terminal_secundario` (string), `espera_media_min`, `atraso_medio_min` (double), `posicao` (int) |
-| `vw_mvp_saia_de_casa` | `codigo_parada` (bigint), `ponto`, `linha`, `faixa_horaria` (string), `espera_sem_aviso_min`, `espera_com_aviso_min`, `minutos_evitados` (double) |
+| `vw_mvp_saia_de_casa` | `codigo_parada` (bigint), `ponto`, `linha`, `faixa_horaria` (string), `espera_sem_aviso_min`, `minutos_evitados` (double), `espera_com_aviso_min` (int) |
 | `dim_usuario` (só o que o app recebe) | `sk_usuario` (string), `telefone_mascarado` (string), `sk_ponto_favorito` (bigint), `faixa_horaria_preferida` (string) |
 
 ---
