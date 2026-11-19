@@ -62,7 +62,7 @@ Na periferia de São Paulo, o trabalhador que depende do ônibus espera muito te
 | Arquitetura: componentes | App web + API (Cloud) · Pipeline de dados (este repositório) · Assistente de IA generativa · Visão computacional no ponto · Robô de alertas (RPA) · Totem físico com sensores (Maker) |
 | Fontes de dados | SPTrans Olho Vivo, Open-Meteo, IBGE e cadastro de usuários simulado |
 | Modelos de IA utilizados | LLM local com RAG e agente (assistente do passageiro) · YOLO customizado (lotação do ponto) |
-| URL do MVP e repositório | MVP: [preencher] · Repositório: [preencher] |
+| URL do MVP e repositório | MVP: [http://buslight-gs.northcentralus.cloudapp.azure.com](http://buslight-gs.northcentralus.cloudapp.azure.com) · Cloud: [GS_SecureDevOpsTools-CloudComputing_BusLight](https://github.com/julialgalvao/GS_SecureDevOpsTools-CloudComputing_BusLight) |
 | Indicadores de impacto | Minutos de espera evitados, pontos críticos identificados, usuários noturnos atendidos |
 | ODS conectados | 11, 10 e 9 |
 
@@ -408,6 +408,6 @@ Os números de cada execução ficam em [`docs/graficos/resumo.json`](docs/grafi
 
 | Item | Link |
 |---|---|
-| MVP (URL pública) | [preencher] |
-| Repositório de Cloud (app que consome a Ouro) | [preencher] |
-| Relatório PDF | [preencher] |
+| MVP (URL pública) | [http://buslight-gs.northcentralus.cloudapp.azure.com](http://buslight-gs.northcentralus.cloudapp.azure.com) |
+| Repositório de Cloud (app que consome a Ouro) | [GS_SecureDevOpsTools-CloudComputing_BusLight](https://github.com/julialgalvao/GS_SecureDevOpsTools-CloudComputing_BusLight) |
+| Relatório PDF | Enviado no Teams da disciplina, com o link deste repositório |
