@@ -59,10 +59,10 @@ Na periferia de São Paulo, o trabalhador que depende do ônibus espera muito te
 | Cidadão e território | Trabalhador da periferia da zona sul de São Paulo (Parelheiros, Grajaú, Capão Redondo, Campo Limpo) que depende de ônibus, principalmente quem sai cedo ou volta tarde; com atenção a mulheres, idosos e pessoas com deficiência |
 | Problema, em uma frase | O passageiro espera tempo demais no ponto, sem saber quando o ônibus chega, muitas vezes à noite e em lugar inseguro |
 | Proposta de valor | Saber quando o ônibus chega e a hora certa de sair de casa, para esperar o mínimo possível no ponto |
-| Arquitetura: componentes | App web + API (Cloud) · Pipeline de dados (este repositório) · Assistente de IA generativa · Visão computacional no ponto · Robô de alertas (RPA) · Totem físico com sensores (Maker) |
+| Arquitetura: componentes | App web + API (repositório de Cloud) · Pipeline de dados (este repositório). Demais componentes da GS, entregues nas outras disciplinas da equipe: assistente de IA generativa, visão computacional no ponto, robô de alertas (RPA) e totem físico com sensores (Maker) |
 | Fontes de dados | SPTrans Olho Vivo, Open-Meteo, IBGE e cadastro de usuários simulado |
-| Modelos de IA utilizados | LLM local com RAG e agente (assistente do passageiro) · YOLO customizado (lotação do ponto) |
-| URL do MVP e repositório | MVP: [preencher] · Repositório: [preencher] |
+| Modelos de IA utilizados | Nas disciplinas de IA e Visão (entrega à parte): LLM local com RAG e agente (assistente do passageiro) · YOLO customizado (lotação do ponto) |
+| URL do MVP e repositório | MVP: [http://buslight-gs.northcentralus.cloudapp.azure.com](http://buslight-gs.northcentralus.cloudapp.azure.com) · Cloud: [GS_SecureDevOpsTools-CloudComputing_BusLight](https://github.com/julialgalvao/GS_SecureDevOpsTools-CloudComputing_BusLight) · Dados: [este repositório](https://github.com/julialgalvao/GS_BigDataArchitecture-DataIntegration_BusLight) |
 | Indicadores de impacto | Minutos de espera evitados, pontos críticos identificados, usuários noturnos atendidos |
 | ODS conectados | 11, 10 e 9 |
 
@@ -86,7 +86,7 @@ Na periferia de São Paulo, o trabalhador que depende do ônibus espera muito te
 | ODS | Meta | Como o BusLight contribui |
 |---|---|---|
 | **11 – Cidades e comunidades sustentáveis** | 11.2 – transporte seguro, acessível e sustentável, com atenção a mulheres, crianças, pessoas com deficiência e idosos | Torna o transporte público mais previsível e reduz o tempo de exposição no ponto |
-| **10 – Redução das desigualdades** | 10.2 – inclusão social e econômica de todos | Foca na periferia, onde a espera é maior e o acesso a informação de qualidade é menor |
+| **10 – Redução das desigualdades** | 10.2 – inclusão social e econômica de todos | Foca na periferia, onde a espera pesa mais e o acesso a informação de qualidade é menor |
 | **9 – Indústria, inovação e infraestrutura** | 9.1 – infraestrutura de qualidade, confiável e acessível | Transforma dados abertos de transporte em infraestrutura de informação para o cidadão e para a gestão pública |
 
 ---
@@ -97,8 +97,8 @@ Na periferia de São Paulo, o trabalhador que depende do ônibus espera muito te
 |---|---|---|
 | 1 | Quanto tempo, em média, se espera em cada ponto à noite? | `01_espera_noturna_por_ponto.sql` |
 | 2 | Quais linhas mais atrasam? | `02_ranking_linhas_atraso.sql` |
-| 3 | Quanto a chuva aumenta a espera? | `03_efeito_chuva_espera.sql` |
-| 4 | Quais pontos são críticos (maior espera noturna)? | `04_pontos_criticos.sql` |
+| 3 | A chuva altera a espera? | `03_efeito_chuva_espera.sql` |
+| 4 | Quais pontos são críticos (espera noturna acima da média)? | `04_pontos_criticos.sql` |
 | 5 | **Impacto:** quantos minutos de exposição no ponto o usuário economiza com o aviso "saia de casa às..."? | `05_impacto_minutos_evitados.sql` |
 
 ---
@@ -146,7 +146,7 @@ Uma amostra de cada fonte está em [`amostras/`](amostras/).
 
 **DAG:** [`dags/buslight_coleta.py`](dags/buslight_coleta.py) · **Agendamento:** `0 6,12,18,22 * * *` (4 coletas por dia, horário de Brasília) · **Airflow:** 3.4.0 · **Coletores:** [`dags/buslight/`](dags/buslight/)
 
-> Quatro coletas por dia para medir a espera em faixas horárias diferentes (manhã, meio-dia, fim da tarde e noite) — a espera noturna é a principal pergunta do MVP.
+> Quatro coletas por dia para medir a espera em faixas horárias diferentes (manhã, meio-dia, fim da tarde e noite) — a pergunta central é o que muda à noite: a espera média é parecida com a do dia, mas a frota cai (em 12/11, 8.156 ônibus às 22h contra 11.448 às 18h, cerca de −29%).
 
 ```
                      ┌─ coletar_posicao  ─┐
@@ -408,6 +408,6 @@ Os números de cada execução ficam em [`docs/graficos/resumo.json`](docs/grafi
 
 | Item | Link |
 |---|---|
-| MVP (URL pública) | [preencher] |
-| Repositório de Cloud (app que consome a Ouro) | [preencher] |
-| Relatório PDF | [preencher] |
+| MVP (URL pública) | [http://buslight-gs.northcentralus.cloudapp.azure.com](http://buslight-gs.northcentralus.cloudapp.azure.com) |
+| Repositório de Cloud (app que consome a Ouro) | [GS_SecureDevOpsTools-CloudComputing_BusLight](https://github.com/julialgalvao/GS_SecureDevOpsTools-CloudComputing_BusLight) |
+| Relatório PDF | Enviado no Teams da disciplina, com o link deste repositório |
