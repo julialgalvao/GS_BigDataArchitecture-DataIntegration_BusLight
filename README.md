@@ -59,9 +59,9 @@ Na periferia de São Paulo, o trabalhador que depende do ônibus espera muito te
 | Cidadão e território | Trabalhador da periferia da zona sul de São Paulo (Parelheiros, Grajaú, Capão Redondo, Campo Limpo) que depende de ônibus, principalmente quem sai cedo ou volta tarde; com atenção a mulheres, idosos e pessoas com deficiência |
 | Problema, em uma frase | O passageiro espera tempo demais no ponto, sem saber quando o ônibus chega, muitas vezes à noite e em lugar inseguro |
 | Proposta de valor | Saber quando o ônibus chega e a hora certa de sair de casa, para esperar o mínimo possível no ponto |
-| Arquitetura: componentes | App web + API (repositório de Cloud) · Pipeline de dados (este repositório). Demais componentes da GS, entregues nas outras disciplinas da equipe: assistente de IA generativa, visão computacional no ponto, robô de alertas (RPA) e totem físico com sensores (Maker) |
+| Arquitetura: componentes | App web + API (repositório de Cloud) · Pipeline de dados (este repositório). Demais componentes da GS, entregues nas outras disciplinas da equipe: visão computacional no ponto e automação de alertas com robô físico (RPA). O assistente de IA generativa é uma proposta de evolução |
 | Fontes de dados | SPTrans Olho Vivo, Open-Meteo, IBGE e cadastro de usuários simulado |
-| Modelos de IA utilizados | Nas disciplinas de IA e Visão (entrega à parte): LLM local com RAG e agente (assistente do passageiro) · YOLO customizado (lotação do ponto) |
+| Modelos de IA utilizados | Visão computacional: YOLO11n treinado para pessoas, ônibus e recursos de acessibilidade. Proposta de evolução: assistente do passageiro com LLM e RAG |
 | URL do MVP e repositório | MVP: [http://buslight-gs.northcentralus.cloudapp.azure.com](http://buslight-gs.northcentralus.cloudapp.azure.com) · Cloud: [GS_SecureDevOpsTools-CloudComputing_BusLight](https://github.com/julialgalvao/GS_SecureDevOpsTools-CloudComputing_BusLight) · Dados: [este repositório](https://github.com/julialgalvao/GS_BigDataArchitecture-DataIntegration_BusLight) |
 | Indicadores de impacto | Minutos de espera evitados, pontos críticos identificados, usuários noturnos atendidos |
 | ODS conectados | 11, 10 e 9 |
