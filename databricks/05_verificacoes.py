@@ -12,36 +12,7 @@ SCHEMA = "workspace.buslight"
 
 # COMMAND ----------
 
-# clima por hora (chave: data_hora)
-antes = spark.table(f"{SCHEMA}.prata_clima_hora").count()
-
-spark.sql(f"""
-CREATE OR REPLACE TEMP VIEW lote_clima AS
-SELECT to_timestamp(h.time) AS data_hora,
-       CAST(h.temperature_2m AS DOUBLE) AS temperatura_c,
-       COALESCE(CAST(h.precipitation AS DOUBLE), 0.0) AS precipitacao_mm,
-       COALESCE(CAST(h.rain AS DOUBLE), 0.0) AS chuva_mm
-FROM (SELECT explode(arrays_zip(dados.hourly.time, dados.hourly.temperature_2m,
-                                dados.hourly.precipitation, dados.hourly.rain)) AS h
-      FROM {SCHEMA}.bronze_clima)
-WHERE h.time IS NOT NULL
-QUALIFY ROW_NUMBER() OVER (PARTITION BY h.time ORDER BY h.time) = 1
-""")
-
-resultado = spark.sql(f"""
-MERGE INTO {SCHEMA}.prata_clima_hora AS alvo
-USING lote_clima AS novo
-ON alvo.data_hora = novo.data_hora
-WHEN MATCHED THEN UPDATE SET *
-WHEN NOT MATCHED THEN INSERT *
-""")
-display(resultado)
-depois = spark.table(f"{SCHEMA}.prata_clima_hora").count()
-print(f"prata_clima_hora: {antes} linhas antes, {depois} depois")
-
-# COMMAND ----------
-
-# usuários (chave: id_usuario) - o mesmo teste com a tabela inteira como lote
+# usuários (chave: id_usuario): o lote é a própria tabela, então nada novo pode entrar
 antes = spark.table(f"{SCHEMA}.prata_usuario").count()
 
 resultado = spark.sql(f"""
