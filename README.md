@@ -45,7 +45,7 @@ Componente **Dados** do BusLight: o pipeline que coleta dados reais de ônibus, 
 
 Na periferia de São Paulo, o trabalhador que depende do ônibus espera muito tempo no ponto, muitas vezes à noite e em lugar escuro, sem saber se o ônibus já passou ou se vai demorar. O BusLight usa a posição real dos ônibus para mostrar quando ele realmente chega e avisar a hora certa de sair de casa, reduzindo o tempo em que a pessoa fica exposta no ponto.
 
-**Território do piloto:** pontos de ônibus dos corredores da zona sul de São Paulo — **Parelheiros / Rio Bonito / Santo Amaro** e **Campo Limpo** —, que ligam bairros da periferia (Parelheiros, Grajaú, Capão Redondo, Campo Limpo) ao centro, com viagens longas e espera noturna maior.
+**Território do piloto:** pontos de ônibus dos corredores da zona sul de São Paulo — **Parelheiros / Rio Bonito / Santo Amaro** e **Campo Limpo** —, que ligam bairros da periferia (Parelheiros, Grajaú, Capão Redondo, Campo Limpo) ao centro, com viagens longas e menos ônibus circulando à noite.
 
 > **Por que esses corredores?** A API Olho Vivo da SPTrans só disponibiliza cadastro de pontos e previsão de chegada para os pontos dos corredores de ônibus. Testamos bairros da zona leste (Guaianases, Itaquera, Cidade Tiradentes) e a previsão voltava vazia; nos corredores Parelheiros e Campo Limpo, 100% dos 144 pontos têm previsão.
 
